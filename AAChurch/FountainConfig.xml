@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Config>
+
+    <RSSfeed>http://fountainoftruth.com/feed/</RSSfeed>
+    <Logo>ftc_church_ico.png</Logo>
+    <Splash>ftc_splash.png</Splash>
+    <Header>ftc_header.png</Header>
+    <PlainBackground>ftc_bg.png</PlainBackground>
+    <DiscoverBackground>ftc_bg_feed.png</DiscoverBackground>
+    <SermonsBackground>ftc_bg_sermons.png</SermonsBackground>
+    <ConnectBackground>ftc_bg_connect.png</ConnectBackground>
+    <FontName>PT Sans Narrow</FontName>
+    <Facebook>http://www.facebook.com/pages/Fountain-of-Truth-Family-Worship-Center/122107527177</Facebook>
+    <Twitter>https://twitter.com/ftcfontana</Twitter>
+    <Email>ftcchurchfontana@aol.com</Email>
+    <Website>http://fountainoftruth.com/</Website>
+
+    <SegmentedControlSelectedColor>
+        <Red>0.3137</Red>
+        <Green>0.6157</Green>
+        <Blue>0.6784</Blue>
+    </SegmentedControlSelectedColor>
+
+    <SegmentedControlUnselectedColor>
+        <Red>0.5725</Red>
+        <Green>0.8588</Green>
+        <Blue>0.8863</Blue>
+    </SegmentedControlUnselectedColor>
+
+    <SliderControlColor>
+        <Red>0.0</Red>
+        <Green>0.0</Green>
+        <Blue>1.0</Blue>
+    </SliderControlColor>
+    
+    <MajorColor>
+        <Red>0.2980</Red>
+        <Green>0.7686</Green>
+        <Blue>0.8118</Blue>
+    </MajorColor>
+    
+    <MinorColor>
+        <Red>0.4471</Red>
+        <Green>0.4471</Green>
+        <Blue>0.4471</Blue>
+    </MinorColor>
+
+
+
+</Config>
