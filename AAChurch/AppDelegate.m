@@ -698,6 +698,25 @@ NSString *const FBSessionStateChangedNotification =
     self.config = [[Config alloc] init];
     [self getConfig];
     
+    //storyboard loading testing
+    double osVersion = [[[UIDevice currentDevice] systemVersion] doubleValue];
+    UIStoryboard *storyboard;
+    if (osVersion >= 7.0) {
+        storyboard = [UIStoryboard storyboardWithName:@"iOS7Storyboard" bundle:[NSBundle mainBundle]];
+    }
+    else {
+        storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    }
+
+    UIViewController *vc =[storyboard instantiateInitialViewController];
+    
+    // Set root view controller and make windows visible
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
+    // end of storyboard loading testing
+    
     splashViewController = [[SplashViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
     //[self.window addSubview:splashViewController.view];
     [self.window.rootViewController.view addSubview:splashViewController.view];

@@ -36,6 +36,7 @@
 		C72B8456165713D90069AEA7 /* btn_nextOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C72B8452165713D90069AEA7 /* btn_nextOn@2x.png */; };
 		C72B8457165713D90069AEA7 /* btn_prevOn.png in Resources */ = {isa = PBXBuildFile; fileRef = C72B8453165713D90069AEA7 /* btn_prevOn.png */; };
 		C72B8458165713D90069AEA7 /* btn_prevOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C72B8454165713D90069AEA7 /* btn_prevOn@2x.png */; };
+		C76646C01975F3B500D19845 /* iOS7Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C76646BF1975F3B500D19845 /* iOS7Storyboard.storyboard */; };
 		C77E6B3C16A7568900179920 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E6B3A16A7549600179920 /* Config.m */; };
 		C77E6B3E16A7575400179920 /* FountainConfig.xml in Resources */ = {isa = PBXBuildFile; fileRef = C77E6B3D16A7575400179920 /* FountainConfig.xml */; };
 		C7824A6316710B51002D00DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7824A6216710B51002D00DE /* QuartzCore.framework */; };
@@ -217,6 +218,7 @@
 		C72B8452165713D90069AEA7 /* btn_nextOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nextOn@2x.png"; sourceTree = "<group>"; };
 		C72B8453165713D90069AEA7 /* btn_prevOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_prevOn.png; sourceTree = "<group>"; };
 		C72B8454165713D90069AEA7 /* btn_prevOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_prevOn@2x.png"; sourceTree = "<group>"; };
+		C76646BF1975F3B500D19845 /* iOS7Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iOS7Storyboard.storyboard; sourceTree = "<group>"; };
 		C77E6B3916A7549600179920 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C77E6B3A16A7549600179920 /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C77E6B3D16A7575400179920 /* FountainConfig.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FountainConfig.xml; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 				C7BA901115CC7EF500FE6CF0 /* Supporting Files */,
 				C7E1C7F415F163F50014BF22 /* SplashViewController.h */,
 				C7E1C7F515F163F50014BF22 /* SplashViewController.m */,
+				C76646BF1975F3B500D19845 /* iOS7Storyboard.storyboard */,
 			);
 			path = AAChurch;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				C78F55A515DC4C0F0002F94B /* AAapp_UI_splash@2x.png in Resources */,
 				C78F55AB15DC4CA50002F94B /* AAapp_UI_icon.png in Resources */,
 				C78F55C015DC8DDA0002F94B /* AAapp_UI_icon@2x.png in Resources */,
+				C76646C01975F3B500D19845 /* iOS7Storyboard.storyboard in Resources */,
 				C78F55C415DD59820002F94B /* AAapp_bg_home.png in Resources */,
 				C78F55C515DD59820002F94B /* AAapp_bg_home@2x.png in Resources */,
 				C78F55C815DD5C020002F94B /* AAapp_btn_locator.png in Resources */,

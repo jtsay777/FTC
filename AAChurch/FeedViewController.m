@@ -77,6 +77,7 @@
 - (FeedItem *)getFeedItemByType:(int)type index:(int)selection {
     FeedItem *feedItem;
     
+    /*
     switch (type) {
         case News:
             feedItem = (FeedItem *)[newsList objectAtIndex:selection];
@@ -90,10 +91,14 @@
             feedItem = (FeedItem *)[blogList objectAtIndex:selection];
             break;
     }
+    */
+    
+    feedItem = (FeedItem *)[newsList objectAtIndex:selection];
     
     return  feedItem;
 }
 
+/*
 - (BOOL)isOneOfListByType:(int)type link:(NSString *)link {
     NSArray *feedList;
     BOOL result = NO;
@@ -124,7 +129,7 @@
     
     return result;
 }
-
+*/
 
 - (void) downloadXmlForURL:(NSURL *) url completionBlock:(void (^)(NSData *data, NSError *error)) block {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
@@ -152,7 +157,7 @@
         GDataXMLElement *pubDate;
         GDataXMLElement *featuredimg;
         
-        //*
+        /*
         if (tabSelection == News) {
             [newsList removeAllObjects];
         }
@@ -162,7 +167,9 @@
         else if (tabSelection == Blog) {
             [blogList removeAllObjects];
         }
-        //*/
+        */
+        [newsList removeAllObjects];
+        NSLog(@"newsList's count = %d, after removeAllObjects", [newsList count]);
         
         int count = [itemList count];
         NSLog(@"itemList count = %d", count);
@@ -214,7 +221,7 @@
             NSString *categoryStr = category.stringValue;
             NSLog(@"category = %@", categoryStr);
             
-            ///*
+            /*
             if (tabSelection == News && [categoryStr isEqualToString:@"News"]) {
                 myItem.type = News;
                 [newsList addObject:myItem];
@@ -228,7 +235,20 @@
                 myItem.type = Blog;
                 [blogList addObject:myItem];
             }
-            //*/
+            */
+            if (tabSelection == News && [categoryStr isEqualToString:@"News"]) {
+                myItem.type = News;
+                [newsList addObject:myItem];
+                NSLog(@"News Title = %@", myItem.title);
+            }
+            else if (tabSelection == Events && [categoryStr isEqualToString:@"Events"]) {
+                myItem.type = Events;
+                [newsList addObject:myItem];
+            }
+            else if (tabSelection == Blog && [categoryStr isEqualToString:@"GetInvolved"]) {
+                myItem.type = Blog;
+                [newsList addObject:myItem];
+            }
             
             /*
             if ([categoryStr isEqualToString:@"News"]) {
@@ -296,7 +316,7 @@
         //[activityIndicator removeFromSuperview];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            ///*
+            /*
             if (tabSelection == News) {
                 [newsTableView reloadData];
             }
@@ -306,7 +326,8 @@
             else if (tabSelection == Blog) {
                 [blogTableView reloadData];
             }
-            //*/
+            */
+            [newsTableView reloadData];
 
             /*
             [newsTableView reloadData];
@@ -353,6 +374,7 @@
     
     [self getFeed];
     
+    /*
     switch (sender.selectedSegmentIndex) {
         case News:
             NSLog(@"do News");
@@ -372,6 +394,7 @@
             
             break;
     }
+    */
 
 }
 
@@ -602,7 +625,10 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	
+	NSLog(@"newsList's count = %d", [newsList count]);
+    return [newsList count];
+    
+    /*
     if (tableView == self.newsTableView) {
         NSLog(@"newsTableView - number of rows: %d",[newsList count]);
         newsCount = [newsList count];
@@ -618,6 +644,7 @@
         blogCount = [blogList count];
         return [blogList count];
     }
+    */
     
     return 0;
 }
@@ -639,6 +666,7 @@
     UITableViewCell *cell;
     FeedItem *item;
     
+    /*
     if (tableView == self.newsTableView) {
         
         cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifier];
@@ -673,6 +701,17 @@
         cell.detailTextLabel.text = item.creator;
         
     }
+    */
+    cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:newsCellIdentifier];
+    }
+    
+    item = (FeedItem*)[newsList objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = item.creator;
+
+    
     cell.imageView.image = [self monthAndDayImage:item.month day:item.day];
     
     cell.textLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
@@ -773,6 +812,7 @@
         //NSString *link;
         FeedItem *feedItem;
         
+        /*
         if (tabSelection == News) {
             indexPath = [self.newsTableView indexPathForSelectedRow];
             selection =indexPath.row;
@@ -794,6 +834,29 @@
             type = Blog;
             feedItem = ((FeedItem*)[blogList objectAtIndex:indexPath.row]);
         }
+        */
+        if (tabSelection == News) {
+            indexPath = [self.newsTableView indexPathForSelectedRow];
+            selection =indexPath.row;
+            count = newsCount;
+            type = News;
+            feedItem = ((FeedItem*)[newsList objectAtIndex:indexPath.row]);
+        }
+        else if (tabSelection == Events) {
+            indexPath = [self.newsTableView indexPathForSelectedRow];
+            selection =indexPath.row;
+            count = eventsCount;
+            type = Events;
+            feedItem = ((FeedItem*)[newsList objectAtIndex:indexPath.row]);
+        }
+        else if (tabSelection == Blog) {
+            indexPath = [self.newsTableView indexPathForSelectedRow];
+            selection =indexPath.row;
+            count = blogCount;
+            type = Blog;
+            feedItem = ((FeedItem*)[newsList objectAtIndex:indexPath.row]);
+        }
+
         
         feedPostVC.feedItem = feedItem;
         feedPostVC.currentSelection = selection;
