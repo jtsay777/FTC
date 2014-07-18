@@ -458,7 +458,7 @@
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"AAapp_bg_discover.png"]];
 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:appDelegate.config.discoverBackground]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:appDelegate.config.discoverBackground]];//use imageview instead(Johnson)
     
     /*
     self.newsTableView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"AAapp_bg_plain.png"]];
@@ -626,6 +626,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSLog(@"newsList's count = %d", [newsList count]);
+    newsCount = [newsList count];
     return [newsList count];
     
     /*
@@ -835,6 +836,7 @@
             feedItem = ((FeedItem*)[blogList objectAtIndex:indexPath.row]);
         }
         */
+        /*
         if (tabSelection == News) {
             indexPath = [self.newsTableView indexPathForSelectedRow];
             selection =indexPath.row;
@@ -856,7 +858,16 @@
             type = Blog;
             feedItem = ((FeedItem*)[newsList objectAtIndex:indexPath.row]);
         }
-
+        */
+        
+        indexPath = [self.newsTableView indexPathForSelectedRow];
+        selection =indexPath.row;
+        count = newsCount;
+        type = tabSelection;
+        feedItem = ((FeedItem*)[newsList objectAtIndex:indexPath.row]);
+        
+        NSLog(@"type = %d, count = %d", tabSelection, count);
+        
         
         feedPostVC.feedItem = feedItem;
         feedPostVC.currentSelection = selection;

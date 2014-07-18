@@ -701,12 +701,18 @@ NSString *const FBSessionStateChangedNotification =
     //storyboard loading testing
     double osVersion = [[[UIDevice currentDevice] systemVersion] doubleValue];
     UIStoryboard *storyboard;
+    
+    /*
     if (osVersion >= 7.0) {
         storyboard = [UIStoryboard storyboardWithName:@"iOS7Storyboard" bundle:[NSBundle mainBundle]];
     }
     else {
         storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     }
+    */
+    
+    storyboard = [UIStoryboard storyboardWithName:@"iOS7Storyboard" bundle:[NSBundle mainBundle]];
+
 
     UIViewController *vc =[storyboard instantiateInitialViewController];
     

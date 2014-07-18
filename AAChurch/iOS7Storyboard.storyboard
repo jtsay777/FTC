@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1YA-AC-cMf">
-                                <rect key="frame" x="5" y="85" width="310" height="30"/>
+                                <rect key="frame" x="5" y="65" width="310" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="zd4-1e-D7c"/>
@@ -32,8 +32,16 @@
                                     <action selector="selectionChanged:" destination="Ldc-U0-47m" eventType="valueChanged" id="9yB-ha-zMC"/>
                                 </connections>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftc_feed_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="lZS-kl-HKs">
+                                <rect key="frame" x="0.0" y="96" width="320" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="hwe-hS-jTy"/>
+                                    <constraint firstAttribute="height" constant="135" id="mNd-Z9-OdG"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-ek-UpZ">
-                                <rect key="frame" x="5" y="200" width="310" height="328"/>
+                                <rect key="frame" x="5" y="231" width="310" height="293"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -75,12 +83,13 @@
                         <constraints>
                             <constraint firstItem="1YA-AC-cMf" firstAttribute="leading" secondItem="RWj-ek-UpZ" secondAttribute="leading" id="8X6-F1-NEF"/>
                             <constraint firstItem="1YA-AC-cMf" firstAttribute="centerX" secondItem="tzP-Ku-J3e" secondAttribute="centerX" id="JdI-H6-B9r"/>
-                            <constraint firstItem="1YA-AC-cMf" firstAttribute="top" secondItem="tzP-Ku-J3e" secondAttribute="top" constant="85" id="Q9Q-2x-ec1"/>
-                            <constraint firstItem="OTe-Fq-bIK" firstAttribute="top" secondItem="1YA-AC-cMf" secondAttribute="bottom" constant="-50" id="Tnp-tL-R3k"/>
-                            <constraint firstAttribute="bottom" secondItem="RWj-ek-UpZ" secondAttribute="bottom" constant="40" id="U47-J3-KmR"/>
+                            <constraint firstItem="1YA-AC-cMf" firstAttribute="top" secondItem="OTe-Fq-bIK" secondAttribute="bottom" constant="1" id="UVv-9a-VLS"/>
+                            <constraint firstItem="lZS-kl-HKs" firstAttribute="centerX" secondItem="1YA-AC-cMf" secondAttribute="centerX" id="Wvs-n1-YBX"/>
                             <constraint firstItem="1YA-AC-cMf" firstAttribute="leading" secondItem="tzP-Ku-J3e" secondAttribute="leading" constant="5" id="i35-rt-j5q"/>
                             <constraint firstItem="1YA-AC-cMf" firstAttribute="trailing" secondItem="RWj-ek-UpZ" secondAttribute="trailing" id="j45-sF-e5m"/>
-                            <constraint firstItem="RWj-ek-UpZ" firstAttribute="top" secondItem="OTe-Fq-bIK" secondAttribute="bottom" constant="136" id="n89-dN-ecN"/>
+                            <constraint firstItem="lZS-kl-HKs" firstAttribute="top" secondItem="1YA-AC-cMf" secondAttribute="bottom" constant="2" id="ldW-od-yOO"/>
+                            <constraint firstItem="RWj-ek-UpZ" firstAttribute="top" secondItem="lZS-kl-HKs" secondAttribute="bottom" id="vmu-Cz-ERQ"/>
+                            <constraint firstItem="B0a-c5-jtu" firstAttribute="top" secondItem="RWj-ek-UpZ" secondAttribute="bottom" constant="-5" id="zKP-Rq-Ax0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Discover" id="WnL-Tf-251"/>
@@ -105,101 +114,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-rk-TXU">
-                                <rect key="frame" x="0.0" y="201" width="320" height="367"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vK-Vc-hZB">
+                                <rect key="frame" x="10" y="70" width="69" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="9zA-Fa-xdU"/>
+                                    <constraint firstAttribute="height" constant="22" id="GoN-jb-KCe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="btn_prevOn.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="6xE-Ec-fXD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-uE-Mrs">
+                                <rect key="frame" x="100" y="71" width="69" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="QFV-yi-Sf5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="btn_nextOn.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="mmN-MY-CMP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjn-tG-rad">
+                                <rect key="frame" x="219" y="71" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="fb" image="ico_share_fbOn.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="xGF-VY-F0i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGu-1Z-E4W">
+                                <rect key="frame" x="280" y="70" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="R7N-O0-vic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="tw" image="ico_share_twOn.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitterAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="jky-U1-7h8"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-rk-TXU">
+                                <rect key="frame" x="0.0" y="95" width="320" height="424"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vK-Vc-hZB">
-                                        <rect key="frame" x="10" y="8" width="69" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Prev" image="btn_prevOn.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="prevAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="6xE-Ec-fXD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-uE-Mrs">
-                                        <rect key="frame" x="90" y="8" width="69" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Next" image="btn_nextOn.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="nextAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="mmN-MY-CMP"/>
-                                        </connections>
-                                    </button>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="Fuc-Si-DQN">
-                                        <rect key="frame" x="10" y="0.0" width="276" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff2-SY-QI3">
-                                        <rect key="frame" x="10" y="45" width="120" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjn-tG-rad">
-                                        <rect key="frame" x="217" y="8" width="23" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="fb" image="ico_share_fbOn.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="facebookAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="xGF-VY-F0i"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGu-1Z-E4W">
-                                        <rect key="frame" x="277" y="8" width="23" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="tw" image="ico_share_twOn.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="twitterAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="jky-U1-7h8"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJS-tf-Szk">
-                                        <rect key="frame" x="283" y="128" width="23" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="mail">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mailAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="LI6-AW-wQO"/>
-                                        </connections>
-                                    </button>
                                     <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-h8-2dn">
-                                        <rect key="frame" x="0.0" y="38" width="320" height="331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="424"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -213,15 +203,29 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2vK-Vc-hZB" firstAttribute="top" secondItem="VJS-uE-Mrs" secondAttribute="top" constant="-1" id="1YG-j2-l4Y"/>
+                            <constraint firstItem="2vK-Vc-hZB" firstAttribute="top" secondItem="Tjn-tG-rad" secondAttribute="top" constant="-1" id="55h-or-OOb"/>
+                            <constraint firstItem="2vK-Vc-hZB" firstAttribute="leading" secondItem="tJg-Th-96Z" secondAttribute="leading" constant="10" id="8hV-Tp-Hw2"/>
+                            <constraint firstItem="VPZ-rk-TXU" firstAttribute="top" secondItem="VJS-uE-Mrs" secondAttribute="bottom" constant="2" id="9d2-dq-Qfg"/>
+                            <constraint firstItem="VJS-uE-Mrs" firstAttribute="leading" secondItem="2vK-Vc-hZB" secondAttribute="trailing" constant="21" id="DSk-xQ-Bfk"/>
+                            <constraint firstItem="2vK-Vc-hZB" firstAttribute="bottom" secondItem="VJS-uE-Mrs" secondAttribute="bottom" constant="-1" id="GNh-C4-IN8"/>
+                            <constraint firstItem="Tjn-tG-rad" firstAttribute="leading" secondItem="VJS-uE-Mrs" secondAttribute="trailing" constant="50" id="LJi-sO-sCI"/>
+                            <constraint firstItem="eGu-1Z-E4W" firstAttribute="leading" secondItem="Tjn-tG-rad" secondAttribute="trailing" constant="38" id="ObS-I3-m8M"/>
+                            <constraint firstItem="2vK-Vc-hZB" firstAttribute="top" secondItem="9Tc-RH-EOM" secondAttribute="bottom" constant="6" id="QSc-Cb-DL0"/>
+                            <constraint firstItem="2vK-Vc-hZB" firstAttribute="top" secondItem="eGu-1Z-E4W" secondAttribute="top" id="Xb0-DD-Yo1"/>
+                            <constraint firstItem="1Qn-yy-im2" firstAttribute="top" secondItem="VPZ-rk-TXU" secondAttribute="bottom" id="hhy-d8-uts"/>
+                            <constraint firstAttribute="trailing" secondItem="eGu-1Z-E4W" secondAttribute="trailing" constant="17" id="kAI-5p-qTd"/>
+                            <constraint firstItem="VPZ-rk-TXU" firstAttribute="leading" secondItem="tJg-Th-96Z" secondAttribute="leading" id="mpJ-Ez-B1O"/>
+                            <constraint firstAttribute="trailing" secondItem="VPZ-rk-TXU" secondAttribute="trailing" id="pHW-AF-wVg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="auu-rm-6on"/>
                     <connections>
-                        <outlet property="dateLabel" destination="ff2-SY-QI3" id="qsq-5X-bS3"/>
                         <outlet property="feedItemWebView" destination="3xF-h8-2dn" id="o3a-sN-j3j"/>
                         <outlet property="nextButton" destination="VJS-uE-Mrs" id="18Z-10-4WY"/>
                         <outlet property="prevButton" destination="2vK-Vc-hZB" id="lnJ-YL-dao"/>
                         <outlet property="scrollView" destination="VPZ-rk-TXU" id="vTn-8v-JAI"/>
-                        <outlet property="titleLabel" destination="Fuc-Si-DQN" id="dN8-Q4-MlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIl-Wn-YyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1288,6 +1292,7 @@
         <image name="btn_share_fbOn.png" width="34" height="34"/>
         <image name="btn_share_mailOn.png" width="34" height="34"/>
         <image name="btn_share_twOn.png" width="34" height="34"/>
+        <image name="ftc_feed_logo.png" width="320" height="135"/>
         <image name="ico_share_fbOn.png" width="23" height="23"/>
         <image name="ico_share_twOn.png" width="23" height="23"/>
         <image name="iconConnect.png" width="30" height="30"/>
