@@ -280,7 +280,7 @@
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"AAapp_bg_sermons.png"]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:appDelegate.config.sermonsBackground]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:appDelegate.config.sermonsBackground]];//by Johnson(use logo instead)
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:appDelegate.config.plainBackground]]];
     

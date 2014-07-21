@@ -110,6 +110,8 @@
 		C7AEE44F16D547A20010EB90 /* ftc_splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7AEE43D16D547A20010EB90 /* ftc_splash@2x.png */; };
 		C7AEE45616D5503D0010EB90 /* ftc_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7AEE45416D5503D0010EB90 /* ftc_icon.png */; };
 		C7AEE45716D5503D0010EB90 /* ftc_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7AEE45516D5503D0010EB90 /* ftc_icon@2x.png */; };
+		C7B06AA9197DB84A00BB63B5 /* ftc_sermons_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B06AA7197DB84A00BB63B5 /* ftc_sermons_logo@2x.png */; };
+		C7B06AAA197DB84A00BB63B5 /* ftc_sermons_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B06AA8197DB84A00BB63B5 /* ftc_sermons_logo.png */; };
 		C7BA900B15CC7EF500FE6CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA900A15CC7EF500FE6CF0 /* UIKit.framework */; };
 		C7BA900D15CC7EF500FE6CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA900C15CC7EF500FE6CF0 /* Foundation.framework */; };
 		C7BA900F15CC7EF500FE6CF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA900E15CC7EF500FE6CF0 /* CoreGraphics.framework */; };
@@ -305,6 +307,8 @@
 		C7AEE43D16D547A20010EB90 /* ftc_splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ftc_splash@2x.png"; sourceTree = "<group>"; };
 		C7AEE45416D5503D0010EB90 /* ftc_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ftc_icon.png; path = Fountain/ftc_icon.png; sourceTree = "<group>"; };
 		C7AEE45516D5503D0010EB90 /* ftc_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ftc_icon@2x.png"; path = "Fountain/ftc_icon@2x.png"; sourceTree = "<group>"; };
+		C7B06AA7197DB84A00BB63B5 /* ftc_sermons_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ftc_sermons_logo@2x.png"; sourceTree = "<group>"; };
+		C7B06AA8197DB84A00BB63B5 /* ftc_sermons_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftc_sermons_logo.png; sourceTree = "<group>"; };
 		C7BA900615CC7EF500FE6CF0 /* FTC Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FTC Church.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7BA900A15CC7EF500FE6CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C7BA900C15CC7EF500FE6CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -459,6 +463,8 @@
 		C7AEE42B16D547A20010EB90 /* Fountain */ = {
 			isa = PBXGroup;
 			children = (
+				C7B06AA7197DB84A00BB63B5 /* ftc_sermons_logo@2x.png */,
+				C7B06AA8197DB84A00BB63B5 /* ftc_sermons_logo.png */,
 				C7A717BD1977431C00A73338 /* ftc_splash-568h@2x.png */,
 				C7A717B91977326700A73338 /* ftc_feed_logo@2x.png */,
 				C7A717BA1977326700A73338 /* ftc_feed_logo.png */,
@@ -811,6 +817,7 @@
 				C78F55AB15DC4CA50002F94B /* AAapp_UI_icon.png in Resources */,
 				C78F55C015DC8DDA0002F94B /* AAapp_UI_icon@2x.png in Resources */,
 				C76646C01975F3B500D19845 /* iOS7Storyboard.storyboard in Resources */,
+				C7B06AAA197DB84A00BB63B5 /* ftc_sermons_logo.png in Resources */,
 				C78F55C415DD59820002F94B /* AAapp_bg_home.png in Resources */,
 				C78F55C515DD59820002F94B /* AAapp_bg_home@2x.png in Resources */,
 				C7A717BE1977431C00A73338 /* ftc_splash-568h@2x.png in Resources */,
@@ -866,6 +873,7 @@
 				C7E72CC415E2D94500CDFA16 /* AAapp_btn_give.png in Resources */,
 				C7E72CC515E2D94500CDFA16 /* AAapp_btn_give@2x.png in Resources */,
 				C7833C8F15F95894000009F0 /* AAapp_ico_address.png in Resources */,
+				C7B06AA9197DB84A00BB63B5 /* ftc_sermons_logo@2x.png in Resources */,
 				C7833C9015F95894000009F0 /* AAapp_ico_address@2x.png in Resources */,
 				C7833C9115F95894000009F0 /* AAapp_ico_link.png in Resources */,
 				C7833C9215F95894000009F0 /* AAapp_ico_link@2x.png in Resources */,
