@@ -30,6 +30,13 @@
     NSLog(@"Enter %s", __PRETTY_FUNCTION__);
     //[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [loadingIndicator stopAnimating];
+    
+    
+    // fix for iOS 7+
+    CGPoint top = CGPointMake(0, 0);
+    [webview.scrollView setContentOffset:top animated:YES];
+    
+
 }
 
 
@@ -194,7 +201,10 @@
             if ([mediaList count] > 0) {
                 FeedItem *firstItem = [mediaList objectAtIndex:0];
                 
-                NSURL *url = [NSURL URLWithString:firstItem.video];
+                //NSURL *url = [NSURL URLWithString:firstItem.video];//Johnson temporarily disable
+                //[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+                
+                NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];
                 
                 [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             }
@@ -284,6 +294,8 @@
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:appDelegate.config.plainBackground]]];
+  
+    //[self.webView setBackgroundColor:[UIColor whiteColor]];
     
     //the following is needed with the UINavigationBarCategory interface in AppDelegate.m
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){

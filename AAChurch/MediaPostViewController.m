@@ -172,7 +172,8 @@
     [loadingIndicator stopAnimating];
     [self.view addSubview:loadingIndicator];
     
-    NSURL *url = [NSURL URLWithString:self.feedItem.video];
+    //NSURL *url = [NSURL URLWithString:self.feedItem.video];//Johnson temporarily
+    NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 

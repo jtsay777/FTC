@@ -132,7 +132,10 @@
             NSArray *speakers = [item elementsForName:@"speaker"];
             speaker = [speakers lastObject];
             NSString *speakerStr = speaker.stringValue;
-            myItem.creator = speakerStr;//for the time being
+            if (speakerStr != NULL) {
+                myItem.creator = speakerStr;//for the time being
+            }
+            //myItem.creator = speakerStr;//for the time being
             NSLog(@"speaker = %@", speakerStr);
              
             NSArray *thumbnails = [item elementsForName:@"thumbnail"];
