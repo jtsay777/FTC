@@ -123,6 +123,7 @@
     [super viewDidUnload];
 }
 
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Make sure we're referring to the correct segue
@@ -135,5 +136,20 @@
         
     }
 }
+*/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    // Make sure we're referring to the correct segue
+    if ([[segue identifier] isEqualToString:@"ShowSoundCloud"]) {
+        
+        // Get reference to the destination view controller
+        WebViewController *soundCloudVC = [segue destinationViewController];
+        
+        soundCloudVC.feedItem = self.feedItem;
+    }
+}
+
 
 @end

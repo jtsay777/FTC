@@ -457,10 +457,10 @@
             </objects>
             <point key="canvasLocation" x="2830" y="-470"/>
         </scene>
-        <!--My Streaming Movie View Controller-->
+        <!--Sermons Post View Controller-->
         <scene sceneID="oOG-LX-ZSO">
             <objects>
-                <viewController id="hLq-yR-C6R" customClass="MyStreamingMovieViewController" sceneMemberID="viewController">
+                <viewController id="hLq-yR-C6R" customClass="SermonsPostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8cr-eD-nPG"/>
                         <viewControllerLayoutGuide type="bottom" id="vML-yG-i8f"/>

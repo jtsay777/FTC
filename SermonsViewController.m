@@ -404,7 +404,8 @@
     if ([[segue identifier] isEqualToString:@"ShowAudioStreamView"]) {
         
         // Get reference to the destination view controller
-        MyStreamingMovieViewController *sermonsPostVC = [segue destinationViewController];
+        //MyStreamingMovieViewController *sermonsPostVC = [segue destinationViewController];
+        SermonsPostViewController *sermonsPostVC = [segue destinationViewController];
         
         // get the selected index
         NSIndexPath *indexPath;
@@ -412,6 +413,8 @@
         FeedItem *feedItem;
         indexPath = [self.tableView indexPathForSelectedRow];
         feedItem = ((FeedItem*)[sermonList objectAtIndex:indexPath.row]);
+        feedItem.audio = @"http://soundcloud.com/apostolicassembly-1/obispo-juan-fortino";//Johnson temporarily
+        feedItem.featuredImageURL = @"http://app.apostolicassembly.org/wp-content/uploads/2012/12/JuanF640x360.jpg";//Johnson temporarily
         
         sermonsPostVC.feedItem = feedItem;
     }
