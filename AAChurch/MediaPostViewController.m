@@ -21,6 +21,7 @@
     NSLog(@"Enter %s", __PRETTY_FUNCTION__);
     //[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [loadingIndicator startAnimating];
+    
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *) webview
@@ -28,6 +29,12 @@
     NSLog(@"Enter %s", __PRETTY_FUNCTION__);
     //[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [loadingIndicator stopAnimating];
+    
+    
+    // fix for iOS 7+
+    CGPoint top = CGPointMake(0, 0);
+    [webview.scrollView setContentOffset:top animated:YES];
+
 }
 
 
@@ -175,6 +182,7 @@
     //NSURL *url = [NSURL URLWithString:self.feedItem.video];//Johnson temporarily
     NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];
     
+    self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 
 }
