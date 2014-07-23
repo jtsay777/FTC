@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C6BDA90C15CF8AA5006AC299 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BDA90B15CF8AA5006AC299 /* DirectionViewController.m */; };
+		C71692E1197F3BC60016B726 /* ftc_connect_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C71692DF197F3BC60016B726 /* ftc_connect_logo@2x.png */; };
+		C71692E2197F3BC60016B726 /* ftc_connect_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C71692E0197F3BC60016B726 /* ftc_connect_logo.png */; };
 		C72B841B1656CAD20069AEA7 /* iconMedia.png in Resources */ = {isa = PBXBuildFile; fileRef = C72B84171656CAD20069AEA7 /* iconMedia.png */; };
 		C72B841C1656CAD20069AEA7 /* iconMedia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C72B84181656CAD20069AEA7 /* iconMedia@2x.png */; };
 		C72B841D1656CAD20069AEA7 /* iconSermons.png in Resources */ = {isa = PBXBuildFile; fileRef = C72B84191656CAD20069AEA7 /* iconSermons.png */; };
@@ -196,6 +198,8 @@
 /* Begin PBXFileReference section */
 		C6BDA90A15CF8AA5006AC299 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
 		C6BDA90B15CF8AA5006AC299 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
+		C71692DF197F3BC60016B726 /* ftc_connect_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ftc_connect_logo@2x.png"; sourceTree = "<group>"; };
+		C71692E0197F3BC60016B726 /* ftc_connect_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftc_connect_logo.png; sourceTree = "<group>"; };
 		C72B84171656CAD20069AEA7 /* iconMedia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconMedia.png; sourceTree = "<group>"; };
 		C72B84181656CAD20069AEA7 /* iconMedia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconMedia@2x.png"; sourceTree = "<group>"; };
 		C72B84191656CAD20069AEA7 /* iconSermons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconSermons.png; sourceTree = "<group>"; };
@@ -463,6 +467,8 @@
 		C7AEE42B16D547A20010EB90 /* Fountain */ = {
 			isa = PBXGroup;
 			children = (
+				C71692DF197F3BC60016B726 /* ftc_connect_logo@2x.png */,
+				C71692E0197F3BC60016B726 /* ftc_connect_logo.png */,
 				C7B06AA7197DB84A00BB63B5 /* ftc_sermons_logo@2x.png */,
 				C7B06AA8197DB84A00BB63B5 /* ftc_sermons_logo.png */,
 				C7A717BD1977431C00A73338 /* ftc_splash-568h@2x.png */,
@@ -858,6 +864,7 @@
 				C7D6E20315DEB7C10078A7F7 /* AAapp_btn_donateOn@2x.png in Resources */,
 				C7E5AD6215E01043006B3AB5 /* Cabin-Bold.ttf in Resources */,
 				C7E5AD6315E01043006B3AB5 /* Cabin-BoldItalic.ttf in Resources */,
+				C71692E2197F3BC60016B726 /* ftc_connect_logo.png in Resources */,
 				C7E5AD6415E01043006B3AB5 /* Cabin-Italic.ttf in Resources */,
 				C7E5AD6515E01043006B3AB5 /* Cabin-Medium.ttf in Resources */,
 				C7E5AD6615E01043006B3AB5 /* Cabin-MediumItalic.ttf in Resources */,
@@ -884,6 +891,7 @@
 				C7833C9615F95894000009F0 /* AAapp_ico_phone@2x.png in Resources */,
 				C7CA36721635BCBA001CAEE1 /* FacebookSDKResources.bundle in Resources */,
 				C72B841B1656CAD20069AEA7 /* iconMedia.png in Resources */,
+				C71692E1197F3BC60016B726 /* ftc_connect_logo@2x.png in Resources */,
 				C72B841C1656CAD20069AEA7 /* iconMedia@2x.png in Resources */,
 				C72B841D1656CAD20069AEA7 /* iconSermons.png in Resources */,
 				C72B841E1656CAD20069AEA7 /* iconSermons@2x.png in Resources */,
