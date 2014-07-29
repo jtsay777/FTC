@@ -416,6 +416,7 @@
     
     NSLog(@"link = %@", self.feedItem.link);
     
+    /*
     //the following is needed with the UINavigationBarCategory interface in AppDelegate.m
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"AApp_header.png"] forBarMetrics:UIBarMetricsDefault];
@@ -423,8 +424,12 @@
         (AppDelegate*)[[UIApplication sharedApplication] delegate];
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:appDelegate.config.header] forBarMetrics:UIBarMetricsDefault];
     }
+    */
+    
+    //[self.navigationController.navigationBar setBackgroundColor:[UIColor yellowColor]];
     
     //self.navigationItem.title = @"Back";
+    self.navigationItem.title = @"My Title";
     
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;
@@ -438,8 +443,10 @@
     UIColor *titleColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"AAapp_bg_plain.png"]];
+    
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 487);//487?

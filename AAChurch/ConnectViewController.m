@@ -22,6 +22,55 @@
 @synthesize connectLabel;
 
 
+- (UIImage *)headerImage
+{
+    NSString *title = @"FOUNTAIN OF TRUTH";
+    AppDelegate *appDelegate =
+    (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    float width = self.view.bounds.size.width;
+    
+    //UIColor *dateColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
+    UIColor *textColor = [UIColor colorWithRed: 255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    
+    // Create new offscreen context with desired size
+    UIGraphicsBeginImageContext(CGSizeMake(width, 44.0f));
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    //CGColorRef fillColor = [[UIColor blackColor] CGColor];//only black and white?
+	//CGContextSetFillColor(context, CGColorGetComponents(fillColor));
+    
+    CGContextSetRGBFillColor(context, 182/255.0, 205/255.0, 216/255.0, 1.0);//work!
+    
+	CGContextBeginPath(context);
+    CGContextFillRect(context, CGRectMake(0, 0, width, 44));
+    //CGContextFillEllipseInRect(context, CGRectMake(0, 0, 40, 40));
+	CGContextFillPath(context);
+    
+    //CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);//redColor works
+    CGContextSetFillColorWithColor(context, [textColor CGColor]);
+    
+    //UIFont *font = [UIFont fontWithName:@"Helvetica" size:12];
+    //UIFont *font = [UIFont fontWithName:@"Times New Roman" size:12];
+    //UIFont *font = [UIFont fontWithName:@"Courier-Bold" size:12];
+    
+    UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:22];
+    CGSize tempSize = [title sizeWithFont:font constrainedToSize:CGSizeMake(width, 44.0) lineBreakMode:UILineBreakModeClip];
+    NSLog(@"tempSize: width = %.2f, height = %.2f", tempSize.width, tempSize.height);
+    //[title drawAtPoint:CGPointMake((320 - tempSize.width)/2, 0.0) withFont:font];
+    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (44 - tempSize.height)/2) withFont:font];
+    
+    // assign context to UIImage
+    UIImage *outputImg = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // end context
+    UIGraphicsEndImageContext();
+    
+    return outputImg;
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -116,6 +165,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //testing
+    float width = self.view.bounds.size.width;
+    
     UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
     rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [rightRecognizer setNumberOfTouchesRequired:1];
@@ -153,7 +204,9 @@
     //the following is needed with the UINavigationBarCategory interface in AppDelegate.m
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"AApp_header.png"] forBarMetrics:UIBarMetricsDefault];
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:appDelegate.config.header] forBarMetrics:UIBarMetricsDefault];
+        //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:appDelegate.config.header] forBarMetrics:UIBarMetricsDefault];
+        
+        [self.navigationController.navigationBar setBackgroundImage:[self headerImage] forBarMetrics:UIBarMetricsDefault];
     }
     
     //self.navigationItem.title = @"Connect";
@@ -162,6 +215,12 @@
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;
     label.text = @"";
+    
+    //Johnson testing(modify status bar background)
+    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0,width, 20)];
+    view.backgroundColor=[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
+    [self.navigationController.view addSubview:view];
+
 
 }
 
@@ -358,6 +417,7 @@
             //[self performSegueWithIdentifier:@"ShowConnection" sender:@"http://www.apostolicassembly.org/"];
             //[self performSegueWithIdentifier:@"ShowConnection" sender:self];
         {
+            /*
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Browsing Confirmation"
                                                                 message:@"\n\n\n\n\n" // IMPORTANT
                                                                delegate:self
@@ -373,9 +433,20 @@
             CGFloat labelFontSize = [UIFont labelFontSize];
             textView.font = [UIFont boldSystemFontOfSize:labelFontSize];
             [alertView addSubview:textView];
-
+             [alertView show];
+             */
+            
+            NSString *msg = [NSString stringWithFormat:@"This page will open in Safari: %@", appDelegate.config.website];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Browsing Confirmation"
+                                                                message:msg
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Cancel"
+                                                      otherButtonTitles:@"OK", nil];
             
             [alertView show];
+
+            
+            
         }
 
             
