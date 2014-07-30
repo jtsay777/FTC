@@ -61,7 +61,9 @@
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     float width = self.view.bounds.size.width;
-    float height = 64.0;
+    float height = 44.0;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) height = 64.0;
+
     
     //UIColor *dateColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     UIColor *textColor = [UIColor colorWithRed: 255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
