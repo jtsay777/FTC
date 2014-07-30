@@ -429,7 +429,7 @@
     //[self.navigationController.navigationBar setBackgroundColor:[UIColor yellowColor]];
     
     //self.navigationItem.title = @"Back";
-    self.navigationItem.title = @"My Title";
+    //self.navigationItem.title = @"My Title";
     
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;

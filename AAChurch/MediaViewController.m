@@ -25,12 +25,13 @@
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     float width = self.view.bounds.size.width;
+    float height = 64.0;
     
     //UIColor *dateColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     UIColor *textColor = [UIColor colorWithRed: 255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
     
     // Create new offscreen context with desired size
-    UIGraphicsBeginImageContext(CGSizeMake(width, 44.0f));
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -40,7 +41,7 @@
     CGContextSetRGBFillColor(context, 182/255.0, 205/255.0, 216/255.0, 1.0);//work!
     
 	CGContextBeginPath(context);
-    CGContextFillRect(context, CGRectMake(0, 0, width, 44));
+    CGContextFillRect(context, CGRectMake(0, 0, width, height));
     //CGContextFillEllipseInRect(context, CGRectMake(0, 0, 40, 40));
 	CGContextFillPath(context);
     
@@ -52,10 +53,10 @@
     //UIFont *font = [UIFont fontWithName:@"Courier-Bold" size:12];
     
     UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:22];
-    CGSize tempSize = [title sizeWithFont:font constrainedToSize:CGSizeMake(width, 44.0) lineBreakMode:UILineBreakModeClip];
+    CGSize tempSize = [title sizeWithFont:font constrainedToSize:CGSizeMake(width, height) lineBreakMode:UILineBreakModeClip];
     NSLog(@"tempSize: width = %.2f, height = %.2f", tempSize.width, tempSize.height);
     //[title drawAtPoint:CGPointMake((320 - tempSize.width)/2, 0.0) withFont:font];
-    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (44 - tempSize.height)/2) withFont:font];
+    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (height - tempSize.height)/2) withFont:font];
     
     // assign context to UIImage
     UIImage *outputImg = UIGraphicsGetImageFromCurrentImageContext();
@@ -365,10 +366,12 @@
     self.navigationItem.titleView = label;
     label.text = @"";
     
+    /*
     //Johnson testing(modify status bar background)
     UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0,width, 20)];
     view.backgroundColor=[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     [self.navigationController.view addSubview:view];
+    */
 
     
     refreshButton = [[UIBarButtonItem alloc]
