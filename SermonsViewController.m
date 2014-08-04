@@ -61,7 +61,7 @@
     //CGColorRef fillColor = [[UIColor blackColor] CGColor];//only black and white?
 	//CGContextSetFillColor(context, CGColorGetComponents(fillColor));
     
-    CGContextSetRGBFillColor(context, 182/255.0, 205/255.0, 216/255.0, 1.0);//work!
+    CGContextSetRGBFillColor(context, 48/255.0, 197/255.0, 244/255.0, 1.0);//work!
     
 	CGContextBeginPath(context);
     CGContextFillRect(context, CGRectMake(0, 0, width, height));
@@ -478,8 +478,8 @@
         FeedItem *feedItem;
         indexPath = [self.tableView indexPathForSelectedRow];
         feedItem = ((FeedItem*)[sermonList objectAtIndex:indexPath.row]);
-        feedItem.audio = @"http://soundcloud.com/apostolicassembly-1/obispo-juan-fortino";//Johnson temporarily
-        feedItem.featuredImageURL = @"http://app.apostolicassembly.org/wp-content/uploads/2012/12/JuanF640x360.jpg";//Johnson temporarily
+        //feedItem.audio = @"http://soundcloud.com/apostolicassembly-1/obispo-juan-fortino";//Johnson temporarily
+        //feedItem.featuredImageURL = @"http://app.apostolicassembly.org/wp-content/uploads/2012/12/JuanF640x360.jpg";//Johnson temporarily
         
         sermonsPostVC.feedItem = feedItem;
     }

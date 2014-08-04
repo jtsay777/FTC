@@ -26,7 +26,7 @@
                                 <segments>
                                     <segment title="News" width="102.66666666666667"/>
                                     <segment title="Events"/>
-                                    <segment title="Get Involved"/>
+                                    <segment title="Blog"/>
                                 </segments>
                                 <connections>
                                     <action selector="selectionChanged:" destination="Ldc-U0-47m" eventType="valueChanged" id="9yB-ha-zMC"/>
@@ -184,21 +184,23 @@
                                     <action selector="twitterAction:" destination="Q1e-yv-cWt" eventType="touchUpInside" id="jky-U1-7h8"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-rk-TXU">
-                                <rect key="frame" x="0.0" y="100" width="320" height="424"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-rk-TXU">
+                                <rect key="frame" x="0.0" y="95" width="320" height="424"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-h8-2dn">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="424"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Q1e-yv-cWt" id="yQx-Ui-cy4"/>
+                                        </connections>
+                                    </webView>
+                                </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="Q1e-yv-cWt" id="mmF-V4-1vJ"/>
                                 </connections>
                             </scrollView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-h8-2dn">
-                                <rect key="frame" x="-5" y="109" width="320" height="424"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Q1e-yv-cWt" id="yQx-Ui-cy4"/>
-                                </connections>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

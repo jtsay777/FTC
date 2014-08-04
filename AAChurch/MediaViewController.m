@@ -39,7 +39,7 @@
     //CGColorRef fillColor = [[UIColor blackColor] CGColor];//only black and white?
 	//CGContextSetFillColor(context, CGColorGetComponents(fillColor));
     
-    CGContextSetRGBFillColor(context, 182/255.0, 205/255.0, 216/255.0, 1.0);//work!
+    CGContextSetRGBFillColor(context, 48/255.0, 197/255.0, 244/255.0, 1.0);//work!
     
 	CGContextBeginPath(context);
     CGContextFillRect(context, CGRectMake(0, 0, width, height));
@@ -177,7 +177,7 @@
             video = [videos lastObject];
             NSString *videoStr = video.stringValue;
             myItem.video = videoStr;
-            NSLog(@"video = %@", videoStr);
+            NSLog(@"video check1 = %@", videoStr);
             
             
             //try to get item's category
@@ -252,12 +252,17 @@
             if ([mediaList count] > 0) {
                 FeedItem *firstItem = [mediaList objectAtIndex:0];
                 
-                //NSURL *url = [NSURL URLWithString:firstItem.video];//Johnson temporarily disable
+                //check if missing http:
+                if (![firstItem.video hasPrefix:@"http:"]) {
+                    firstItem.video = [NSString stringWithFormat:@"http:%@", firstItem.video];
+                }
+                NSURL *url = [NSURL URLWithString:firstItem.video];//Johnson temporarily disable
                 //[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
                 
-                NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];
+                //NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];
                 
-                [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+                //[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+                [self embedVimeo:firstItem.video];
             }
 
             
@@ -333,6 +338,18 @@
     }
     
     //return YES;
+}
+
+-(void)embedVimeo:(NSString *)video{
+    
+    //NSString *embedHTML = @"<iframe width=\"320\" height=\"150\" src=\"http://www.vimeo.com/embed/rOPI5LDo7mg\" frameborder=\"0\" allowfullscreen></iframe>";
+    
+    //NSString *html = [NSString stringWithFormat:embedHTML];
+    NSString *html = [NSString stringWithFormat:@"<iframe width=\"320\" height=\"150\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>", video];
+    
+    
+    [_webView loadHTMLString:html baseURL:nil];
+    //[self.view addSubview:_webView];
 }
 
 

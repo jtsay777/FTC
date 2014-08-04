@@ -92,6 +92,7 @@
 		C7A717BC1977326700A73338 /* ftc_feed_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C7A717BA1977326700A73338 /* ftc_feed_logo.png */; };
 		C7A717BE1977431C00A73338 /* ftc_splash-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7A717BD1977431C00A73338 /* ftc_splash-568h@2x.png */; };
 		C7A717C0197743FD00A73338 /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7A717BF197743FD00A73338 /* default-568h@2x.png */; };
+		C7ADD584198FFC3E00E81228 /* ftc_icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ADD583198FFC3E00E81228 /* ftc_icon_120.png */; };
 		C7AEE43E16D547A20010EB90 /* ftc_bg_connect.png in Resources */ = {isa = PBXBuildFile; fileRef = C7AEE42C16D547A20010EB90 /* ftc_bg_connect.png */; };
 		C7AEE43F16D547A20010EB90 /* ftc_bg_connect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7AEE42D16D547A20010EB90 /* ftc_bg_connect@2x.png */; };
 		C7AEE44016D547A20010EB90 /* ftc_bg_feed.png in Resources */ = {isa = PBXBuildFile; fileRef = C7AEE42E16D547A20010EB90 /* ftc_bg_feed.png */; };
@@ -291,6 +292,7 @@
 		C7A717BA1977326700A73338 /* ftc_feed_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftc_feed_logo.png; sourceTree = "<group>"; };
 		C7A717BD1977431C00A73338 /* ftc_splash-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ftc_splash-568h@2x.png"; sourceTree = "<group>"; };
 		C7A717BF197743FD00A73338 /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
+		C7ADD583198FFC3E00E81228 /* ftc_icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftc_icon_120.png; sourceTree = "<group>"; };
 		C7AEE42C16D547A20010EB90 /* ftc_bg_connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftc_bg_connect.png; sourceTree = "<group>"; };
 		C7AEE42D16D547A20010EB90 /* ftc_bg_connect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ftc_bg_connect@2x.png"; sourceTree = "<group>"; };
 		C7AEE42E16D547A20010EB90 /* ftc_bg_feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftc_bg_feed.png; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 		C7AEE42B16D547A20010EB90 /* Fountain */ = {
 			isa = PBXGroup;
 			children = (
+				C7ADD583198FFC3E00E81228 /* ftc_icon_120.png */,
 				C71692DF197F3BC60016B726 /* ftc_connect_logo@2x.png */,
 				C71692E0197F3BC60016B726 /* ftc_connect_logo.png */,
 				C7B06AA7197DB84A00BB63B5 /* ftc_sermons_logo@2x.png */,
@@ -942,6 +945,7 @@
 				C7AEE44E16D547A20010EB90 /* ftc_splash.png in Resources */,
 				C7AEE44F16D547A20010EB90 /* ftc_splash@2x.png in Resources */,
 				C7AEE45616D5503D0010EB90 /* ftc_icon.png in Resources */,
+				C7ADD584198FFC3E00E81228 /* ftc_icon_120.png in Resources */,
 				C7AEE45716D5503D0010EB90 /* ftc_icon@2x.png in Resources */,
 				C7846CFB16D69695006B14A2 /* ftc_bg.png in Resources */,
 				C7846CFC16D69695006B14A2 /* ftc_bg@2x.png in Resources */,

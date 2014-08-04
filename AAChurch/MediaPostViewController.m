@@ -138,6 +138,18 @@
     //return YES;
 }
 
+-(void)embedVimeo{
+    
+    //NSString *embedHTML = @"<iframe width=\"320\" height=\"150\" src=\"http://www.vimeo.com/embed/rOPI5LDo7mg\" frameborder=\"0\" allowfullscreen></iframe>";
+    
+    //NSString *html = [NSString stringWithFormat:embedHTML];
+    NSString *html = [NSString stringWithFormat:@"<iframe width=\"320\" height=\"150\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>", self.feedItem.video];
+    
+    
+    [_webView loadHTMLString:html baseURL:nil];
+    //[self.view addSubview:_webView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -154,7 +166,7 @@
     UIColor *titleColor = appDelegate.config.majorColor; //[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     
     self.titleLabel.backgroundColor=[UIColor clearColor];
-    self.titleLabel.shadowColor = [UIColor blackColor];
+    //self.titleLabel.shadowColor = [UIColor blackColor];
     //self.titleLabel.shadowOffset = CGSizeMake(0,2);
     self.titleLabel.textColor = titleColor; //[UIColor whiteColor];
     self.titleLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
@@ -179,11 +191,18 @@
     [loadingIndicator stopAnimating];
     [self.view addSubview:loadingIndicator];
     
-    //NSURL *url = [NSURL URLWithString:self.feedItem.video];//Johnson temporarily
-    NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];
+    //check if missing http:
+    if (![self.feedItem.video hasPrefix:@"http:"]) {
+        self.feedItem.video = [NSString stringWithFormat:@"http:%@", self.feedItem.video];
+    }
+    NSURL *url = [NSURL URLWithString:self.feedItem.video];
+    //NSURL *url = [NSURL URLWithString:@"http://youtu.be/ql36y7Lut8Y"];//Johnson temporarily
+    
+    NSLog(@"video check2 = %@", self.feedItem.video);
     
     self.webView.delegate = self;
-    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    //[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    [self embedVimeo];
 
 }
 
