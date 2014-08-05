@@ -45,6 +45,13 @@
         <Green>0.4471</Green>
         <Blue>0.4471</Blue>
     </MinorColor>
+    
+    <HeaderColor>
+        <Red>0.1882</Red>
+        <Green>0.7725</Green>
+        <Blue>0.9569</Blue>
+    </HeaderColor>
+
 
 
 

@@ -649,6 +649,20 @@ NSString *const FBSessionStateChangedNotification =
         blue = [temp lastObject];
         NSLog(@"blue = %@\n", blue.stringValue);
         self.config.minorColor = [UIColor colorWithRed:[red.stringValue floatValue] green:[green.stringValue floatValue] blue:[blue.stringValue floatValue] alpha:1.0];
+        
+        temp = [config elementsForName:@"HeaderColor"];
+        sliderControlColor = [temp lastObject];
+        temp = [sliderControlColor elementsForName:@"Red"];
+        red = [temp lastObject];
+        NSLog(@"HeaderColor\n");
+        NSLog(@"red = %@\n", red.stringValue);
+        temp = [sliderControlColor elementsForName:@"Green"];
+        green = [temp lastObject];
+        NSLog(@"green = %@\n", green.stringValue);
+        temp = [sliderControlColor elementsForName:@"Blue"];
+        blue = [temp lastObject];
+        NSLog(@"blue = %@\n", blue.stringValue);
+        self.config.headerColor = [UIColor colorWithRed:[red.stringValue floatValue] green:[green.stringValue floatValue] blue:[blue.stringValue floatValue] alpha:1.0];
     }
 }
 

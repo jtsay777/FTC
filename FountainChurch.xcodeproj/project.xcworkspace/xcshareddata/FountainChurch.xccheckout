@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F38D695E-1076-4400-B076-5779117FB997</string>
+	<string>0C97E00B-B50D-444A-BD48-DD9E34638CBF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>FountainChurch</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5D14CD75-D408-4C0E-9492-32EE21994BE9</key>
-		<string>https://github.com/jtsay777/AAChurch.git</string>
+		<key>71299E54-1C22-4FF3-846E-1F5DB7CE0976</key>
+		<string>https://github.com/jtsay777/FTC.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>FountainChurch.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5D14CD75-D408-4C0E-9492-32EE21994BE9</key>
+		<key>71299E54-1C22-4FF3-846E-1F5DB7CE0976</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/jtsay777/AAChurch.git</string>
+	<string>https://github.com/jtsay777/FTC.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5D14CD75-D408-4C0E-9492-32EE21994BE9</string>
+	<string>71299E54-1C22-4FF3-846E-1F5DB7CE0976</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5D14CD75-D408-4C0E-9492-32EE21994BE9</string>
+			<string>71299E54-1C22-4FF3-846E-1F5DB7CE0976</string>
 			<key>IDESourceControlWCCName</key>
-			<string>AAChurch Mass Production</string>
+			<string>FTC</string>
 		</dict>
 	</array>
 </dict>

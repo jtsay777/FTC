@@ -76,7 +76,11 @@
     //CGColorRef fillColor = [[UIColor blackColor] CGColor];//only black and white?
 	//CGContextSetFillColor(context, CGColorGetComponents(fillColor));
     
-    CGContextSetRGBFillColor(context, 48/255.0, 197/255.0, 244/255.0, 1.0);//work!
+    //CGContextSetRGBFillColor(context, 48/255.0, 197/255.0, 244/255.0, 1.0);//work!
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [appDelegate.config.headerColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    CGContextSetRGBFillColor(context, red, green, blue, 1.0);
+
     
 	CGContextBeginPath(context);
     CGContextFillRect(context, CGRectMake(0, 0, width, height));

@@ -29,5 +29,6 @@
 @property (strong, nonatomic) UIColor *sliderControlColor;
 @property (strong, nonatomic) UIColor *majorColor;
 @property (strong, nonatomic) UIColor *minorColor;
+@property (strong, nonatomic) UIColor *headerColor;
 
 @end
