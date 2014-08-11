@@ -36,6 +36,7 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (assign) BOOL fullScreenVideoIsPlaying;
 
 @property (strong, nonatomic) Config *config;
+@property(nonatomic,assign)BOOL landscape;
 
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void) closeSession;

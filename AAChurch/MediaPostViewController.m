@@ -93,7 +93,7 @@
 - (void)printSubviews: (UIView *)view {
 	NSArray* subviews = [view subviews];
 	
-    self.fullScreenVideoIsPlaying = NO;
+    //self.fullScreenVideoIsPlaying = NO;
     
 	if (subviews.count == 0) {
 	}
@@ -104,7 +104,8 @@
 			[self printSubviews:currentView];
             NSString *name = [NSString stringWithFormat:@"%@", [currentView class]];
             //NSLog(@"name = %@\n", name);
-            if ([name isEqualToString:@"MPFullScreenVideoOverlay"]) {
+            //if ([name isEqualToString:@"MPFullScreenVideoOverlay"]) {
+            if ([name isEqualToString:@"MPVideoPlaybackOverlayView"]) {
                 self.fullScreenVideoIsPlaying = YES;
                 NSLog(@"name = %@\n", name);
             }
@@ -116,6 +117,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     NSLog(@"Enter %s", __PRETTY_FUNCTION__);
+    
+    self.fullScreenVideoIsPlaying = NO;
     
     //testing
     NSArray *subviews = self.view.subviews;

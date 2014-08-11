@@ -477,28 +477,6 @@ NSString *const FBSessionStateChangedNotification =
     [splashViewController.view removeFromSuperview];
 }
 
-- (void)printSubviews: (UIView *)view {
-	NSArray* subviews = [view subviews];
-	
-    self.fullScreenVideoIsPlaying = NO;
-    
-	if (subviews.count == 0) {
-	}
-	else {
-		//NSLog(@"count of subviews = %d", subviews.count);
-		for (int i = 0; i < subviews.count; i++) {
-			UIView * currentView = [subviews objectAtIndex:i];
-			[self printSubviews:currentView];
-            NSString *name = [NSString stringWithFormat:@"%@", [currentView class]];
-            //NSLog(@"name = %@\n", name);
-            if ([name isEqualToString:@"MPFullScreenVideoOverlay"]) {
-                self.fullScreenVideoIsPlaying = YES;
-                NSLog(@"name = %@\n", name);
-            }
-        }
-	}	
-}
-
 - (void)xmlParse:(GDataXMLDocument *)doc
 {
     NSArray *configList = [doc nodesForXPath:@"//Config" error:nil];
@@ -684,9 +662,35 @@ NSString *const FBSessionStateChangedNotification =
     
 }
 
+- (void)printSubviews: (UIView *)view {
+	NSArray* subviews = [view subviews];
+	
+    //self.fullScreenVideoIsPlaying = NO;
+    
+	if (subviews.count == 0) {
+	}
+	else {
+		//NSLog(@"count of subviews = %d", subviews.count);
+		for (int i = 0; i < subviews.count; i++) {
+			UIView * currentView = [subviews objectAtIndex:i];
+			[self printSubviews:currentView];
+            NSString *name = [NSString stringWithFormat:@"%@", [currentView class]];
+            //NSLog(@"name = %@\n", name);
+            //if ([name isEqualToString:@"MPFullScreenVideoOverlay"]) {
+            if ([name isEqualToString:@"MPVideoPlaybackOverlayView"]) {
+                self.fullScreenVideoIsPlaying = YES;
+                NSLog(@"name = %@\n", name);
+            }
+        }
+	}
+}
+
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     
+    ///*
     //testing
+    self.fullScreenVideoIsPlaying = NO;
+    
     NSArray *subviews = window.subviews;
     NSLog(@"subviews count = %d\n", subviews.count);
     for (int i = 0; i < subviews.count; i++) {
@@ -695,7 +699,9 @@ NSString *const FBSessionStateChangedNotification =
         //NSLog(@"name = %@\n", name);
         [self printSubviews:currentView];
     }
+    //*/
     
+    //if (true) {
     if (self.fullScreenVideoIsPlaying) {
         NSLog(@"Enter: %s", __PRETTY_FUNCTION__);
         return UIInterfaceOrientationMaskAllButUpsideDown;
@@ -748,6 +754,7 @@ NSString *const FBSessionStateChangedNotification =
     
     return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
