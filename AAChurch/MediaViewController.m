@@ -95,7 +95,7 @@
     
     
     // fix for iOS 7+
-    CGPoint top = CGPointMake(0, 0);
+    CGPoint top = CGPointMake(8, 8);
     [webview.scrollView setContentOffset:top animated:YES];
     
 
@@ -448,6 +448,7 @@
     return [mediaList count];
 }
 
+/*
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     UIRectCorner cornerDef;
     if (indexPath.row == 0) {
@@ -468,6 +469,7 @@
         [cell.imageView setNeedsDisplay];
     }
 }
+*/
 
 
 // Customize the appearance of table view cells.
@@ -500,13 +502,16 @@
     cell.imageView.image = [UIImage imageWithData:imageData];
     
     cell.textLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
-    cell.detailTextLabel.textColor = authorColor;
+    cell.detailTextLabel.textColor = appDelegate.config.headerColor;//authorColor;
     cell.detailTextLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:11];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor colorWithRed:(76/255.0) green:(196/255.0) blue:(207/255.0) alpha:1];
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [appDelegate.config.headerColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    //selectionColor.backgroundColor = [UIColor colorWithRed:(76/255.0) green:(196/255.0) blue:(207/255.0) alpha:1];
+    selectionColor.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
     cell.selectedBackgroundView = selectionColor;
     
     return cell;

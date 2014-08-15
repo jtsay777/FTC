@@ -683,7 +683,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-/*
+
 - (UIImage *)monthAndDayImage:(NSString *)month day:(NSString *)day
 {
     AppDelegate *appDelegate =
@@ -729,13 +729,13 @@
     
     return outputImg;
 }
-*/
 
-- (UIImage *)monthAndDayImage:(NSString *)month day:(NSString *)day
+
+- (UIImage *)monthAndDayImage7:(NSString *)month day:(NSString *)day
 {
     float width, height;
-    width = 60;
-    height = 60;
+    width = 72;
+    height = 72;
     AppDelegate *appDelegate =
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
@@ -763,13 +763,13 @@
     //UIFont *font = [UIFont fontWithName:@"Courier-Bold" size:12];
     
     UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:24];
-    CGSize tempSize = [month sizeWithFont:font constrainedToSize:CGSizeMake(width, 30) lineBreakMode:UILineBreakModeClip];
+    CGSize tempSize = [month sizeWithFont:font constrainedToSize:CGSizeMake(width, height/2) lineBreakMode:UILineBreakModeClip];
     [month drawAtPoint:CGPointMake((width - tempSize.width)/2, 0.0) withFont:font];
     
     //font = [UIFont fontWithName:@"Helvetica" size:16];
     font = [UIFont fontWithName:appDelegate.config.fontName size:32];
-    tempSize = [day sizeWithFont:font constrainedToSize:CGSizeMake(width, 40) lineBreakMode:UILineBreakModeClip];
-    [day drawAtPoint:CGPointMake((width - tempSize.width)/2, 20) withFont:font];
+    tempSize = [day sizeWithFont:font constrainedToSize:CGSizeMake(width, height/2) lineBreakMode:UILineBreakModeClip];
+    [day drawAtPoint:CGPointMake((width - tempSize.width)/2, height/2 - 10) withFont:font];
     
     // assign context to UIImage
     UIImage *outputImg = UIGraphicsGetImageFromCurrentImageContext();
@@ -877,17 +877,24 @@
     cell.textLabel.text = item.title;
     cell.detailTextLabel.text = item.creator;
 
-    
-    cell.imageView.image = [self monthAndDayImage:item.month day:item.day];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        cell.imageView.image = [self monthAndDayImage7:item.month day:item.day];
+    }
+    else {
+        cell.imageView.image = [self monthAndDayImage:item.month day:item.day];
+    }
     
     cell.textLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
-    cell.detailTextLabel.textColor = authorColor;
+    cell.detailTextLabel.textColor = appDelegate.config.headerColor;//authorColor;
     cell.detailTextLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:11];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor colorWithRed:(76/255.0) green:(196/255.0) blue:(207/255.0) alpha:1];
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [appDelegate.config.headerColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    //selectionColor.backgroundColor = [UIColor colorWithRed:(76/255.0) green:(196/255.0) blue:(207/255.0) alpha:1];
+    selectionColor.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
     cell.selectedBackgroundView = selectionColor;
     
     return cell;

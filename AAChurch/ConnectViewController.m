@@ -197,7 +197,7 @@
     AppDelegate *appDelegate =
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    connectLabel.textColor = appDelegate.config.majorColor;//headerColor;
+    connectLabel.textColor = appDelegate.config.headerColor;//appDelegate.config.majorColor;//headerColor;
     connectLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
     connectLabel.text = @"Ways to connect.";
     
@@ -380,11 +380,14 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     cell.textLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
-    cell.detailTextLabel.textColor = detailColor;
+    cell.detailTextLabel.textColor = appDelegate.config.headerColor;//detailColor;
     cell.detailTextLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:11];
 
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor colorWithRed:(76/255.0) green:(196/255.0) blue:(207/255.0) alpha:1];
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [appDelegate.config.headerColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    //selectionColor.backgroundColor = [UIColor colorWithRed:(76/255.0) green:(196/255.0) blue:(207/255.0) alpha:1];
+    selectionColor.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
     cell.selectedBackgroundView = selectionColor;
     
     return cell;

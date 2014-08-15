@@ -83,9 +83,9 @@
     appDelegate.currentVC = self;
     
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
     
-    UIColor *titleColor = appDelegate.config.majorColor;//[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
+    UIColor *titleColor = appDelegate.config.headerColor;//appDelegate.config.majorColor;//[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     
     self.titleLabel.backgroundColor=[UIColor clearColor];
     //self.titleLabel.shadowColor = [UIColor blackColor];
