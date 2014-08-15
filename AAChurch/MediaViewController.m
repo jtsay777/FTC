@@ -24,9 +24,17 @@
     AppDelegate *appDelegate =
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
+    float yoffset = 0;
+    int fontSize = 22;
     float width = self.view.bounds.size.width;
     float height = 44.0;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) height = 64.0;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        height = 64.0*2;
+        width *= 2;
+        fontSize *= 2;
+        yoffset = 15;
+    }
+    
     
     //UIColor *dateColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     UIColor *textColor = [UIColor colorWithRed: 255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
@@ -44,6 +52,7 @@
     [appDelegate.config.headerColor getRed:&red green:&green blue:&blue alpha:&alpha];
     CGContextSetRGBFillColor(context, red, green, blue, 1.0);
     
+    
 	CGContextBeginPath(context);
     CGContextFillRect(context, CGRectMake(0, 0, width, height));
     //CGContextFillEllipseInRect(context, CGRectMake(0, 0, 40, 40));
@@ -56,11 +65,11 @@
     //UIFont *font = [UIFont fontWithName:@"Times New Roman" size:12];
     //UIFont *font = [UIFont fontWithName:@"Courier-Bold" size:12];
     
-    UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:22];
+    UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:fontSize];
     CGSize tempSize = [title sizeWithFont:font constrainedToSize:CGSizeMake(width, height) lineBreakMode:UILineBreakModeClip];
     NSLog(@"tempSize: width = %.2f, height = %.2f", tempSize.width, tempSize.height);
     //[title drawAtPoint:CGPointMake((320 - tempSize.width)/2, 0.0) withFont:font];
-    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (height - tempSize.height)/2) withFont:font];
+    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (height - tempSize.height)/2 + yoffset) withFont:font];
     
     // assign context to UIImage
     UIImage *outputImg = UIGraphicsGetImageFromCurrentImageContext();
@@ -70,7 +79,6 @@
     
     return outputImg;
 }
-
 
 - (void)webViewDidStartLoad:(UIWebView *) webview
 {
@@ -388,6 +396,8 @@
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;
     label.text = @"";
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     /*
     //Johnson testing(modify status bar background)

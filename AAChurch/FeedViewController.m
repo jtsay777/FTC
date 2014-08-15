@@ -60,9 +60,16 @@
     AppDelegate *appDelegate =
     (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
+    float yoffset = 0;
+    int fontSize = 22;
     float width = self.view.bounds.size.width;
     float height = 44.0;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) height = 64.0;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+       height = 64.0*2;
+        width *= 2;
+        fontSize *= 2;
+        yoffset = 15;
+    }
 
     
     //UIColor *dateColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
@@ -94,11 +101,11 @@
     //UIFont *font = [UIFont fontWithName:@"Times New Roman" size:12];
     //UIFont *font = [UIFont fontWithName:@"Courier-Bold" size:12];
     
-    UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:22];
+    UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:fontSize];
     CGSize tempSize = [title sizeWithFont:font constrainedToSize:CGSizeMake(width, height) lineBreakMode:UILineBreakModeClip];
     NSLog(@"tempSize: width = %.2f, height = %.2f", tempSize.width, tempSize.height);
     //[title drawAtPoint:CGPointMake((320 - tempSize.width)/2, 0.0) withFont:font];
-    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (height - tempSize.height)/2) withFont:font];
+    [title drawAtPoint:CGPointMake((width - tempSize.width)/2, (height - tempSize.height)/2 + yoffset) withFont:font];
     
     // assign context to UIImage
     UIImage *outputImg = UIGraphicsGetImageFromCurrentImageContext();
@@ -495,6 +502,8 @@
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"AAapp_bg_feed.png"]];
     
+    //self.view.backgroundColor = [UIColor whiteColor];
+    
     /*
     UIImage *imageToCrop;
     UIImage *croppedImage;
@@ -530,7 +539,9 @@
     */
 
     
-    [newsTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:appDelegate.config.plainBackground]]];
+    //[newsTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:appDelegate.config.plainBackground]]];
+    
+    [newsTableView setBackgroundColor:[UIColor whiteColor]];
     
     [eventsTableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:appDelegate.config.plainBackground]]];
 
@@ -556,16 +567,38 @@
     //[self.navigationController.navigationBar setBackgroundColor:[UIColor yellowColor]];
     
     
-    
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:80/255.0 green:157/255.0 blue:173/255.0 alpha:1.0]];
+
     
     //self.navigationItem.title = @"Discover";
     self.navigationItem.title = @"Back";
     
+    ///*
     //The following will not show the Back on the navigationItem title?
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;
     label.text = @"";
+    //*/
+    
+    /*
+    //testing
+    UILabel *titleLabelView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)]; //<<---- Actually will be auto-resized according to frame of navigation bar;
+    [titleLabelView setBackgroundColor:[UIColor clearColor]];
+    //[titleLabelView setBackgroundColor:appDelegate.config.headerColor];
+    [titleLabelView setTextAlignment: NSTextAlignmentCenter];
+    [titleLabelView setTextColor:[UIColor whiteColor]];
+    //[titleLabelView setFont:[UIFont systemFontOfSize: 27]]; //<<--- Greatest font size
+    [titleLabelView setAdjustsFontSizeToFitWidth:YES]; //<<---- Allow shrink
+    // [titleLabelView setAdjustsLetterSpacingToFitWidth:YES];  //<<-- Another option for iOS 6+
+    titleLabelView.text = @"FOUNTAIN OF TRUTH";
+    titleLabelView.font = [UIFont fontWithName:appDelegate.config.fontName size:22];
+    
+    self.navigationController.navigationBar.topItem.titleView = titleLabelView;
+    
+    self.navigationController.navigationBar.tintColor = appDelegate.config.headerColor;
+    */
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     /*
     //Johnson testing(modify status bar background)
@@ -650,6 +683,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/*
 - (UIImage *)monthAndDayImage:(NSString *)month day:(NSString *)day
 {
     AppDelegate *appDelegate =
@@ -695,6 +729,57 @@
     
     return outputImg;
 }
+*/
+
+- (UIImage *)monthAndDayImage:(NSString *)month day:(NSString *)day
+{
+    float width, height;
+    width = 60;
+    height = 60;
+    AppDelegate *appDelegate =
+    (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    UIColor *dateColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
+    
+    // Create new offscreen context with desired size
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGColorRef fillColor = [[UIColor whiteColor] CGColor];//only black and white
+	CGContextSetFillColor(context, CGColorGetComponents(fillColor));
+	
+	CGContextBeginPath(context);
+    //CGContextFillRect(context, CGRectMake(0, 0, 40, 40));
+    //CGContextFillEllipseInRect(context, CGRectMake(0, 0, 40, 40));
+	CGContextFillPath(context);
+    
+    
+    //CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);//redColor works
+    CGContextSetFillColorWithColor(context, [dateColor CGColor]);
+    
+    //UIFont *font = [UIFont fontWithName:@"Helvetica" size:12];
+    //UIFont *font = [UIFont fontWithName:@"Times New Roman" size:12];
+    //UIFont *font = [UIFont fontWithName:@"Courier-Bold" size:12];
+    
+    UIFont *font = [UIFont fontWithName:appDelegate.config.fontName size:24];
+    CGSize tempSize = [month sizeWithFont:font constrainedToSize:CGSizeMake(width, 30) lineBreakMode:UILineBreakModeClip];
+    [month drawAtPoint:CGPointMake((width - tempSize.width)/2, 0.0) withFont:font];
+    
+    //font = [UIFont fontWithName:@"Helvetica" size:16];
+    font = [UIFont fontWithName:appDelegate.config.fontName size:32];
+    tempSize = [day sizeWithFont:font constrainedToSize:CGSizeMake(width, 40) lineBreakMode:UILineBreakModeClip];
+    [day drawAtPoint:CGPointMake((width - tempSize.width)/2, 20) withFont:font];
+    
+    // assign context to UIImage
+    UIImage *outputImg = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // end context
+    UIGraphicsEndImageContext();
+    
+    return outputImg;
+}
+
 
 
 #pragma mark Table view methods

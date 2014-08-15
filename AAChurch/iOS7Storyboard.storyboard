@@ -40,12 +40,12 @@
                                     <constraint firstAttribute="height" constant="135" id="mNd-Z9-OdG"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-ek-UpZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="52" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="RWj-ek-UpZ">
                                 <rect key="frame" x="5" y="231" width="310" height="293"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" textLabel="5Bf-Z2-bac" detailTextLabel="aXu-8O-1Pb" style="IBUITableViewCellStyleSubtitle" id="ibT-iP-DVp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" textLabel="5Bf-Z2-bac" detailTextLabel="aXu-8O-1Pb" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="ibT-iP-DVp">
                                         <rect key="frame" x="0.0" y="55" width="310" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ibT-iP-DVp" id="15J-vE-ODg">
@@ -79,7 +79,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1YA-AC-cMf" firstAttribute="leading" secondItem="RWj-ek-UpZ" secondAttribute="leading" id="8X6-F1-NEF"/>
                             <constraint firstItem="1YA-AC-cMf" firstAttribute="centerX" secondItem="tzP-Ku-J3e" secondAttribute="centerX" id="JdI-H6-B9r"/>

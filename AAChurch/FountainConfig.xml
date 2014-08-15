@@ -17,15 +17,15 @@
     <Website>http://fountainoftruth.com/</Website>
 
     <SegmentedControlSelectedColor>
-        <Red>0.3137</Red>
-        <Green>0.6157</Green>
-        <Blue>0.6784</Blue>
+        <Red>0.1882</Red>
+        <Green>0.7725</Green>
+        <Blue>0.9569</Blue>
     </SegmentedControlSelectedColor>
 
     <SegmentedControlUnselectedColor>
-        <Red>0.5725</Red>
-        <Green>0.8588</Green>
-        <Blue>0.8863</Blue>
+        <Red>0.1882</Red>
+        <Green>0.7725</Green>
+        <Blue>0.9569</Blue>
     </SegmentedControlUnselectedColor>
 
     <SliderControlColor>
@@ -56,3 +56,17 @@
 
 
 </Config>
+
+<!--
+ <SegmentedControlSelectedColor>
+ <Red>0.3137</Red>
+ <Green>0.6157</Green>
+ <Blue>0.6784</Blue>
+ </SegmentedControlSelectedColor>
+ 
+ <SegmentedControlUnselectedColor>
+ <Red>0.5725</Red>
+ <Green>0.8588</Green>
+ <Blue>0.8863</Blue>
+ </SegmentedControlUnselectedColor>
+ -->
