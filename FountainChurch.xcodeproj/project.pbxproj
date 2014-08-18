@@ -1083,7 +1083,7 @@
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "FTC Church";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BF950E9D-9D95-4308-B3FF-B385A95E65F3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "a1777eba-7679-4dec-8db7-973ea4d126b5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1105,7 +1105,7 @@
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "FTC Church";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "27F69774-CC10-407B-B6CD-6EE427882500";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "758b3bfe-abc6-430a-b283-ea352c19ab9d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
