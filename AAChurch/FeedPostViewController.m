@@ -8,6 +8,7 @@
 
 #import "FeedPostViewController.h"
 #import "AppDelegate.h"
+#import "NSString+FontAwesome.h"
 
 @interface FeedPostViewController () {
     FeedItem *currentFeedItem;
@@ -194,7 +195,7 @@
         
         [picker setSubject:@"Apostolic Assembly sharing"];
         // Fill out the email body text
-        NSString *emailBody = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
+        NSString *emailBody = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
         emailBody = [emailBody stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
         NSMutableString *html = [NSMutableString string];
         [html appendString:@"<html><body><p>"];
@@ -302,7 +303,7 @@
     
     //NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
     
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Fountain Church mobile app. Download it today!", self.feedItem.title];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth Church mobile app. Download it today!", self.feedItem.title];
     [appDelegate doTwitter:msg];
 }
 
@@ -384,6 +385,7 @@
 - (IBAction)facebookAction:(UIButton *)sender {
     NSLog(@"Enter: %s", __PRETTY_FUNCTION__);
     
+     
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -404,7 +406,7 @@
     */
     
     //NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", currentFeedItem.title];
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Fountain Church mobile app. Download it today!", self.feedItem.title];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth Church mobile app. Download it today!", self.feedItem.title];
     
     [appDelegate doFacebook:msg];
 }
@@ -415,6 +417,19 @@
 	// Do any additional setup after loading the view.
     
     NSLog(@"link = %@", self.feedItem.link);
+    
+    //fontawesome testing
+    self.fbButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:15.f];
+    //self.fbButton.titleLabel.text = [NSString fontAwesomeIconStringForEnum:FAFacebook];
+    self.twButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:15.f];
+    //self.twButton.titleLabel.text = [NSString fontAwesomeIconStringForEnum:FATwitter];
+    
+    [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateNormal];
+    [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateSelected];
+    
+    [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateNormal];
+    [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateSelected];
+
     
     /*
     //the following is needed with the UINavigationBarCategory interface in AppDelegate.m
@@ -447,7 +462,7 @@
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 487);//487?
 	self.scrollView.maximumZoomScale = 2.0;

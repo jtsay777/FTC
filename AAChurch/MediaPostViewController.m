@@ -50,7 +50,7 @@
     [[UIApplication sharedApplication] delegate];
         
     //NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Fountain Church mobile app. Download it today!", self.feedItem.title];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
     [appDelegate doFacebook:msg];
 
 }
@@ -63,7 +63,7 @@
     
     //NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
     
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Fountain Church mobile app. Download it today!", self.feedItem.title];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
     [appDelegate doTwitter:msg];
 
 }
@@ -75,8 +75,8 @@
     [[UIApplication sharedApplication] delegate];
     
     //NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Fountain Church mobile app. Download it today!", self.feedItem.title];
-    [appDelegate doMail:msg];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
+    [appDelegate doMail:msg subject:@"Fountain of Truth App - Video"];
     
 
 }

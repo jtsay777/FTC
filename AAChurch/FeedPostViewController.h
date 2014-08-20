@@ -36,5 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *feedItemWebView;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *fbButton;
+@property (weak, nonatomic) IBOutlet UIButton *twButton;
 
 @end

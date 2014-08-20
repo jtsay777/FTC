@@ -24,7 +24,7 @@ NSString *const FBSessionStateChangedNotification =
 
 @synthesize latitude, longitude;
 
-- (void)doMail:(NSString *)msg
+- (void)doMail:(NSString *)msg subject:(NSString *)subject
 {
     NSLog(@"Enter: %s", __PRETTY_FUNCTION__);
     
@@ -33,7 +33,8 @@ NSString *const FBSessionStateChangedNotification =
         MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
         picker.mailComposeDelegate = self;
         
-        [picker setSubject:@"Apostolic Assembly sharing"];
+        //[picker setSubject:@"Apostolic Assembly sharing"];
+        [picker setSubject:subject];
         // Fill out the email body text
         NSString *emailBody = msg;
         emailBody = [emailBody stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];

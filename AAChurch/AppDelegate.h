@@ -41,7 +41,7 @@ extern NSString *const FBSessionStateChangedNotification;
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void) closeSession;
 
-- (void)doMail:(NSString *)msg;
+- (void)doMail:(NSString *)msg subject:(NSString *)subject;
 - (void)doTwitter:(NSString *)msg;
 - (void)doFacebook:(NSString *)msg;
 @end

@@ -226,13 +226,14 @@
     }
     
     //self.navigationItem.title = @"Connect";
-    self.navigationItem.title = @"Back";
+    self.navigationItem.title = @"";//@"Back";
     
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;
     label.text = @"";
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     
     /*
     //Johnson testing(modify status bar background)
@@ -349,26 +350,26 @@
     switch (indexPath.row) {
         case Facebook:
             cell.textLabel.text = @"Facebook";
-            cell.detailTextLabel.text = @"Like Us on Facebook";
+            cell.detailTextLabel.text = @"Like Fountain of Truth Church on Facebook";
             cell.imageView.image = [UIImage imageNamed:@"AAapp_ico_fb.png"];
             break;
         case Twitter:
             cell.textLabel.text = @"Twitter";
             //cell.detailTextLabel.text = @"Follow Apostolic Assembly on Twitter";
-            cell.detailTextLabel.text = @"Follow Fountain Church on Twitter";
+            cell.detailTextLabel.text = @"Follow Fountain of Truth Church on Twitter";
             cell.imageView.image = [UIImage imageNamed:@"AAapp_ico_tw.png"];
             break;
         case Email:
             cell.textLabel.text = @"Email";
             //cell.detailTextLabel.text = @"pr@apostolicassembly.org";
-            cell.detailTextLabel.text = @"ftcchurchfontana@aol.com";
+            cell.detailTextLabel.text = @"Email Fountain of Truth Church";
             cell.imageView.image = [UIImage imageNamed:@"AAapp_ico_em.png"];
             break;
         case Website:
             //cell.textLabel.text = @"ApostolicAssembly.org";
             //cell.detailTextLabel.text = @"Apostolic Assembly's offical Website";
             cell.textLabel.text = @"fountainoftruth.com";
-            cell.detailTextLabel.text = @"Fountain Church's offical Website";
+            cell.detailTextLabel.text = @"Visit Fountain of Truth Church's Official Website";
             //cell.imageView.image = [UIImage imageNamed:@"AAapp_ico_aa.png"];
             cell.imageView.image = [UIImage imageNamed:appDelegate.config.logo];
             break;

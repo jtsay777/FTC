@@ -309,7 +309,7 @@
                 myItem.type = Events;
                 [newsList addObject:myItem];
             }
-            else if (tabSelection == Blog && [categoryStr isEqualToString:@"GetInvolved"]) {
+            else if (tabSelection == Blog && [categoryStr isEqualToString:@"Blog"]) {
                 myItem.type = Blog;
                 [newsList addObject:myItem];
             }
@@ -571,7 +571,7 @@
 
     
     //self.navigationItem.title = @"Discover";
-    self.navigationItem.title = @"Back";
+    self.navigationItem.title = @"";//@"Back";
     
     ///*
     //The following will not show the Back on the navigationItem title?

@@ -391,7 +391,7 @@
         [self.navigationController.navigationBar setBackgroundImage:[self headerImage] forBarMetrics:UIBarMetricsDefault];
     }
     
-    self.navigationItem.title = @"Back";
+    self.navigationItem.title = @"";//@"Back";
     
     UILabel *label = [[UILabel alloc] init];
     self.navigationItem.titleView = label;

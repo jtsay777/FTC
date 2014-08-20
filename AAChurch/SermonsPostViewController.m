@@ -37,7 +37,7 @@
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
     [appDelegate doFacebook:msg];
     
 }
@@ -49,7 +49,7 @@
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
     [appDelegate doTwitter:msg];
     
 }
@@ -60,8 +60,8 @@
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
-    [appDelegate doMail:msg];
+    NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth mobile app. Download it today!", self.feedItem.title];
+    [appDelegate doMail:msg subject:@"Fountain of Truth App - Listen"];
 }
 
 
@@ -106,6 +106,8 @@
     NSURL * imageURL = [NSURL URLWithString:self.feedItem.featuredImageURL];
     NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
     self.imageView.image = [UIImage imageWithData:imageData];
+    
+    self.navigationItem.title = @"";//@"Back";
     
 }
 

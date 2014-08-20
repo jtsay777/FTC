@@ -56,6 +56,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FontAwesome.ttf</string>
 		<string>PT Sans Narrow-Regular.ttf</string>
 	</array>
 	<key>UILaunchImages</key>
