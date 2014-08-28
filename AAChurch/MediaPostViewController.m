@@ -9,8 +9,12 @@
 #import "MediaPostViewController.h"
 #import "WebViewController.h"
 #import "AppDelegate.h"
+#import "NSString+FontAwesome.h"
 
 @interface MediaPostViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *fbButton;
+@property (weak, nonatomic) IBOutlet UIButton *twButton;
+@property (weak, nonatomic) IBOutlet UIButton *mailButton;
 
 @end
 
@@ -146,11 +150,25 @@
     //NSString *embedHTML = @"<iframe width=\"320\" height=\"150\" src=\"http://www.vimeo.com/embed/rOPI5LDo7mg\" frameborder=\"0\" allowfullscreen></iframe>";
     
     //NSString *html = [NSString stringWithFormat:embedHTML];
-    NSString *html = [NSString stringWithFormat:@"<iframe width=\"320\" height=\"150\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>", self.feedItem.video];
+    NSString *html = [NSString stringWithFormat:@"<iframe width=\"320\" height=\"180\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>", self.feedItem.video];
     
     
+    if ([UIScreen mainScreen].bounds.size.height>=568) {
+       html = [NSString stringWithFormat:@"<iframe width=\"320\" height=\"268\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>", self.feedItem.video];
+    }
+    
+    
+    self.webView.scrollView.scrollEnabled = NO;
+    self.webView.scrollView.bounces = NO;
     [_webView loadHTMLString:html baseURL:nil];
     //[self.view addSubview:_webView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    // fix for iOS 7+
+    CGPoint top = CGPointMake(8, 8);
+    [self.webView.scrollView setContentOffset:top animated:YES];
 }
 
 - (void)viewDidLoad
@@ -168,6 +186,26 @@
     
     UIColor *titleColor = appDelegate.config.headerColor;//appDelegate.config.majorColor; //[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     
+    
+    //fontawesome testing
+    self.fbButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:24.f];
+    self.twButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:24.f];
+    self.mailButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:24.f];
+    
+    [self.fbButton setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.twButton setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.mailButton setTitleColor:titleColor forState:UIControlStateNormal];
+    
+    [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateNormal];
+    [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateSelected];
+    
+    [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateNormal];
+    [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateSelected];
+    
+    [self.mailButton setTitle:[NSString fontAwesomeIconStringForEnum:FAEnvelope] forState:UIControlStateNormal];
+    [self.mailButton setTitle:[NSString fontAwesomeIconStringForEnum:FAEnvelope] forState:UIControlStateSelected];
+
+    
     self.titleLabel.backgroundColor=[UIColor clearColor];
     //self.titleLabel.shadowColor = [UIColor blackColor];
     //self.titleLabel.shadowOffset = CGSizeMake(0,2);
@@ -175,7 +213,7 @@
     self.titleLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
     
     self.creatorLabel.textColor = appDelegate.config.minorColor;//[UIColor whiteColor];
-    self.dateLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];
+    self.creatorLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];
     
     self.dateLabel.textColor = appDelegate.config.minorColor;//[UIColor whiteColor];
     self.dateLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];

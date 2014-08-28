@@ -360,7 +360,8 @@
     //NSString *html = [NSString stringWithFormat:embedHTML];
     NSString *html = [NSString stringWithFormat:@"<iframe width=\"320\" height=\"150\" src=\"%@\" frameborder=\"0\" allowfullscreen></iframe>", video];
     
-    
+    self.webView.scrollView.scrollEnabled = NO;
+    self.webView.scrollView.bounces = NO;                                                                                                                                                                                                          
     [_webView loadHTMLString:html baseURL:nil];
     //[self.view addSubview:_webView];
 }

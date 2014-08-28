@@ -416,6 +416,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"AAapp_bg_plain.png"]];
+    
+    AppDelegate *appDelegate =
+    (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+     UIColor *titleColor = appDelegate.config.headerColor;//[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
+    
     NSLog(@"link = %@", self.feedItem.link);
     
     //fontawesome testing
@@ -424,11 +431,29 @@
     self.twButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:15.f];
     //self.twButton.titleLabel.text = [NSString fontAwesomeIconStringForEnum:FATwitter];
     
+    [self.fbButton setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.twButton setTitleColor:titleColor forState:UIControlStateNormal];
+    
     [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateNormal];
     [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateSelected];
     
     [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateNormal];
     [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateSelected];
+    
+    // round framed button
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        
+        self.nextButton.layer.cornerRadius = 2;
+        self.nextButton.layer.borderWidth = 1;
+        self.nextButton.layer.borderColor = titleColor.CGColor;
+        
+        self.prevButton.layer.cornerRadius = 2;
+        self.prevButton.layer.borderWidth = 1;
+        self.prevButton.layer.borderColor = titleColor.CGColor;
+        
+    }
+    [self.nextButton setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.prevButton setTitleColor:titleColor forState:UIControlStateNormal];
 
     
     /*
@@ -455,12 +480,6 @@
     [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     [self.view addSubview:activityIndicator];
     
-    UIColor *titleColor = [UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
-    
-    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"AAapp_bg_plain.png"]];
-    
-    AppDelegate *appDelegate =
-    (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
     

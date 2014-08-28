@@ -10,8 +10,13 @@
 #import "WebViewController.h"
 #import "MyStreamingMovieViewController.h"
 #import "AppDelegate.h"
+#import "NSString+FontAwesome.h"
 
 @interface SermonsPostViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *listenButton;
+@property (weak, nonatomic) IBOutlet UIButton *fbButton;
+@property (weak, nonatomic) IBOutlet UIButton *twButton;
+@property (weak, nonatomic) IBOutlet UIButton *mailButton;
 
 @end
 
@@ -81,20 +86,47 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.currentVC = self;
+
+    UIColor *titleColor = appDelegate.config.headerColor;//appDelegate.config.majorColor;//[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
+
+    //fontawesome testing
+    self.fbButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:24.f];
+    self.twButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:24.f];
+    self.mailButton.titleLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:24.f];
+    
+    [self.fbButton setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.twButton setTitleColor:titleColor forState:UIControlStateNormal];
+    [self.mailButton setTitleColor:titleColor forState:UIControlStateNormal];
+    
+    [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateNormal];
+    [self.fbButton setTitle:[NSString fontAwesomeIconStringForEnum:FAFacebook] forState:UIControlStateSelected];
+    
+    [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateNormal];
+    [self.twButton setTitle:[NSString fontAwesomeIconStringForEnum:FATwitter] forState:UIControlStateSelected];
+    
+    [self.mailButton setTitle:[NSString fontAwesomeIconStringForEnum:FAEnvelope] forState:UIControlStateNormal];
+    [self.mailButton setTitle:[NSString fontAwesomeIconStringForEnum:FAEnvelope] forState:UIControlStateSelected];
+
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        
+        self.listenButton.layer.cornerRadius = 2;
+        self.listenButton.layer.borderWidth = 1;
+        self.listenButton.layer.borderColor = titleColor.CGColor;//self.listenButton.tintColor.CGColor;
+
+    }
+    [self.listenButton setTitleColor:titleColor forState:UIControlStateNormal];
     
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:appDelegate.config.plainBackground]];
-    
-    UIColor *titleColor = appDelegate.config.headerColor;//appDelegate.config.majorColor;//[UIColor colorWithRed: 182/255.0 green:205/255.0 blue:216/255.0 alpha:1.0];
     
     self.titleLabel.backgroundColor=[UIColor clearColor];
     //self.titleLabel.shadowColor = [UIColor blackColor];
     //self.titleLabel.shadowOffset = CGSizeMake(0,2);
     self.titleLabel.textColor = titleColor; //[UIColor whiteColor];
-    self.titleLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];
+    self.titleLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:20];
     
     self.creatorLabel.textColor = appDelegate.config.minorColor;//[UIColor whiteColor];
-    self.dateLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];
+    self.creatorLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];
     
     self.dateLabel.textColor = appDelegate.config.minorColor;//[UIColor whiteColor];
     self.dateLabel.font = [UIFont fontWithName:appDelegate.config.fontName size:14];
