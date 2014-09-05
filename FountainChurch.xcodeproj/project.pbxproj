@@ -1109,7 +1109,7 @@
 				GCC_PREFIX_HEADER = "AAChurch/FountainChurch-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "AAChurch/FountainChurch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "FTC Church";
 				PROVISIONING_PROFILE = "";
@@ -1122,7 +1122,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JWay Group, Inc. (A3DUNBLGZ8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
@@ -1131,11 +1131,11 @@
 				GCC_PREFIX_HEADER = "AAChurch/FountainChurch-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "AAChurch/FountainChurch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "FTC Church";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "758b3bfe-abc6-430a-b283-ea352c19ab9d";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4d02884b-7688-40b8-a883-246beeb81831";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
