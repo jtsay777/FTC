@@ -20,7 +20,7 @@
 #import "Config.h"
 
 
-extern NSString *const FBSessionStateChangedNotification;
+//extern NSString *const FBSessionStateChangedNotification;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate>
 {

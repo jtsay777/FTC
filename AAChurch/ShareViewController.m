@@ -17,39 +17,6 @@
 
 @implementation ShareViewController
 
-- (void)publishStory
-{
-    //testing
-    NSString *message = @"this is a test message for feed.";
-    NSDictionary *params = [NSDictionary dictionaryWithObject:message forKey:@"message"];
-
-    [FBRequestConnection
-     startWithGraphPath:@"me/feed"
-     parameters:params//parameters:self.postParams (both formats work)
-     HTTPMethod:@"POST"
-     completionHandler:^(FBRequestConnection *connection,
-                         id result,
-                         NSError *error) {
-         NSString *alertText;
-         if (error) {
-             alertText = [NSString stringWithFormat:
-                          @"error: domain = %@, code = %d",
-                          error.domain, error.code];
-         } else {
-             alertText = [NSString stringWithFormat:
-                          @"Posted action, id: %@",
-                          [result objectForKey:@"id"]];
-         }
-         // Show the result in an alert
-         [[[UIAlertView alloc] initWithTitle:@"Result"
-                                     message:alertText
-                                    delegate:self
-                           cancelButtonTitle:@"OK!"
-                           otherButtonTitles:nil]
-          show];
-     }];
-}
-
 
 - (void)cancelButtonAction:(UIButton *)button
 {
@@ -77,6 +44,7 @@
     }
     */
     
+    /*
     // Ask for publish_actions permissions in context
     if ([FBSession.activeSession.permissions
          indexOfObject:@"publish_actions"] == NSNotFound) {
@@ -90,14 +58,15 @@
              if (!error) {
                  // If permissions granted, publish the story
                  NSLog(@"path 3");
-                 [self publishStory];
+                 //[self publishStory];
              }
          }];
     } else {
         // If permissions present, publish the story
         NSLog(@"path 2");
-        [self publishStory];
+        //[self publishStory];
     }
+    */
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

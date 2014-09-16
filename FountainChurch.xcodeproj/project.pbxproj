@@ -132,8 +132,6 @@
 		C7BA902D15CD928200FE6CF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BA902B15CD928200FE6CF0 /* MapKit.framework */; };
 		C7BA906015CD972300FE6CF0 /* Church.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA905F15CD972300FE6CF0 /* Church.m */; };
 		C7BA906415CDC0E300FE6CF0 /* ChurchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA906315CDC0E200FE6CF0 /* ChurchDetailViewController.m */; };
-		C7CA366F1635BC31001CAEE1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CA366E1635BC31001CAEE1 /* FacebookSDK.framework */; };
-		C7CA36721635BCBA001CAEE1 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C7CA36711635BCBA001CAEE1 /* FacebookSDKResources.bundle */; };
 		C7CA36761635BD1D001CAEE1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CA36731635BD1D001CAEE1 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C7CA36771635BD1D001CAEE1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CA36741635BD1D001CAEE1 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C7CA36781635BD1D001CAEE1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CA36751635BD1D001CAEE1 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -347,8 +345,6 @@
 		C7BA905F15CD972300FE6CF0 /* Church.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Church.m; sourceTree = "<group>"; };
 		C7BA906215CDC0E200FE6CF0 /* ChurchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChurchDetailViewController.h; sourceTree = "<group>"; };
 		C7BA906315CDC0E200FE6CF0 /* ChurchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChurchDetailViewController.m; sourceTree = "<group>"; };
-		C7CA366E1635BC31001CAEE1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		C7CA36711635BCBA001CAEE1 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		C7CA36731635BD1D001CAEE1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		C7CA36741635BD1D001CAEE1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C7CA36751635BD1D001CAEE1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -449,7 +445,6 @@
 				C7BA900B15CC7EF500FE6CF0 /* UIKit.framework in Frameworks */,
 				C7BA900D15CC7EF500FE6CF0 /* Foundation.framework in Frameworks */,
 				C7BA900F15CC7EF500FE6CF0 /* CoreGraphics.framework in Frameworks */,
-				C7CA366F1635BC31001CAEE1 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,8 +551,6 @@
 				C7CA36731635BD1D001CAEE1 /* Accounts.framework */,
 				C7CA36741635BD1D001CAEE1 /* AdSupport.framework */,
 				C7CA36751635BD1D001CAEE1 /* Social.framework */,
-				C7CA36711635BCBA001CAEE1 /* FacebookSDKResources.bundle */,
-				C7CA366E1635BC31001CAEE1 /* FacebookSDK.framework */,
 				C7EA269215D336CD005D67F1 /* MessageUI.framework */,
 				C7BA902A15CD928200FE6CF0 /* CoreLocation.framework */,
 				C7BA902B15CD928200FE6CF0 /* MapKit.framework */,
@@ -919,7 +912,6 @@
 				C7833C9415F95894000009F0 /* AAapp_ico_mail@2x.png in Resources */,
 				C7833C9515F95894000009F0 /* AAapp_ico_phone.png in Resources */,
 				C7833C9615F95894000009F0 /* AAapp_ico_phone@2x.png in Resources */,
-				C7CA36721635BCBA001CAEE1 /* FacebookSDKResources.bundle in Resources */,
 				C72B841B1656CAD20069AEA7 /* iconMedia.png in Resources */,
 				C71692E1197F3BC60016B726 /* ftc_connect_logo@2x.png in Resources */,
 				C72B841C1656CAD20069AEA7 /* iconMedia@2x.png in Resources */,

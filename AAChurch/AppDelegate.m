@@ -11,8 +11,8 @@
 
 #define SPLASHSCREEN_DELAY 3
 
-NSString *const FBSessionStateChangedNotification =
-@"com.jway.aachurch.Login:FBSessionStateChangedNotification";
+//NSString *const FBSessionStateChangedNotification = @"com.jway.aachurch.Login:FBSessionStateChangedNotification";
+
 
 @interface AppDelegate () {    
     TWTweetComposeViewController *_tweetSheet;
@@ -131,62 +131,6 @@ NSString *const FBSessionStateChangedNotification =
 
 }
 
-- (void)publishStory:(NSString *)msg
-{
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObject:msg forKey:@"message"];
-    
-    [FBRequestConnection
-     startWithGraphPath:@"me/feed"
-     parameters:params//parameters:self.postParams (both formats work)
-     HTTPMethod:@"POST"
-     completionHandler:^(FBRequestConnection *connection,
-                         id result,
-                         NSError *error) {
-         NSString *alertText;
-         if (error) {
-             alertText = [NSString stringWithFormat:
-                          @"error: domain = %@, code = %d",
-                          error.domain, error.code];
-         } else {
-             //alertText = [NSString stringWithFormat:@"Posted action, id: %@", [result objectForKey:@"id"]];
-             alertText = @"Post to Facebook done.";
-             
-             // Show the result in an alert
-             [[[UIAlertView alloc] initWithTitle:@"Result"
-                                         message:alertText
-                                        delegate:self
-                               cancelButtonTitle:@"OK!"
-                               otherButtonTitles:nil]
-              show];
-
-             
-         }
-      }];
-}
-
--(void)doFacebookPost:(NSString *)msg {
-    
-    // Ask for publish_actions permissions in context
-    if ([FBSession.activeSession.permissions
-         indexOfObject:@"publish_actions"] == NSNotFound) {
-        // No permissions found in session, ask for it
-        [FBSession.activeSession
-         reauthorizeWithPublishPermissions:
-         [NSArray arrayWithObject:@"publish_actions"]
-         defaultAudience:FBSessionDefaultAudienceFriends
-         completionHandler:^(FBSession *session, NSError *error) {
-             if (!error) {
-                 // If permissions granted, publish the story
-                 [self publishStory:msg];
-             }
-         }];
-    } else {
-        // If permissions present, publish the story
-        [self publishStory:msg];
-    }
-    
-}
 
 - (void)doFacebookIOS6:(NSString *)msg
 {
@@ -252,31 +196,6 @@ NSString *const FBSessionStateChangedNotification =
         return;
     }
 
-    // If the user is authenticated, log out when the button is clicked.
-    // If the user is not authenticated, log in when the button is clicked.
-    if (FBSession.activeSession.isOpen) {
-        if ([msg isEqualToString:lastPost]) {
-            [[[UIAlertView alloc] initWithTitle:@"Posting Notice"
-                                        message:@"The same content has been posted already."
-                                       delegate:self
-                              cancelButtonTitle:@"OK!"
-                              otherButtonTitles:nil]
-             show];
-
-        } else {
-            //[appDelegate closeSession];//disable by Johnson
-            //can we do post here?
-            NSLog(@"\ntry to do a posting!!\n");
-            [self doFacebookPost:msg];
-            lastPost = msg;
-        }
-    } else {
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
-        [self openSessionWithAllowLoginUI:YES];
-        NSLog(@"\ncheck point03\n");
-    }
-
 }
 
 // Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
@@ -306,69 +225,6 @@ NSString *const FBSessionStateChangedNotification =
 }
 
 
-//Facebook stuff
-/*
- * Callback for session changes.
- */
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    switch (state) {
-        case FBSessionStateOpen:
-            if (!error) {
-                // We have a valid session
-                NSLog(@"User session found");
-            }
-            break;
-        case FBSessionStateClosed:
-        case FBSessionStateClosedLoginFailed:
-            [FBSession.activeSession closeAndClearTokenInformation];
-            break;
-        default:
-            break;
-    }
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:FBSessionStateChangedNotification
-     object:session];
-    
-    if (error) {
-        // do not show message if it is the following case
-        NSRange range = [error.localizedDescription rangeOfString:@"error 2"];
-        if (range.length > 0) {
-            return;
-        }
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
-}
-
-/*
- * Opens a Facebook session and optionally shows the login UX.
- */
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    return [FBSession openActiveSessionWithReadPermissions:nil
-                                              allowLoginUI:allowLoginUI
-                                         completionHandler:^(FBSession *session,
-                                                             FBSessionState state,
-                                                             NSError *error) {
-                                             [self sessionStateChanged:session
-                                                                 state:state
-                                                                 error:error];
-                                         }];
-}
-
-- (void) closeSession {
-    [FBSession.activeSession closeAndClearTokenInformation];
-}
-
-
 /*
  * If we have a valid session at the time of openURL call, we handle
  * Facebook transitions by passing the url argument to handleOpenURL
@@ -383,7 +239,7 @@ NSString *const FBSessionStateChangedNotification =
         return NO;
     }
     
-    return [FBSession.activeSession handleOpenURL:url];
+    //return [FBSession.activeSession handleOpenURL:url];
 }
 
 //end of Facebook stuff
@@ -782,7 +638,7 @@ NSString *const FBSessionStateChangedNotification =
     // (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0)
     {
-       [FBSession.activeSession handleDidBecomeActive];
+       //[FBSession.activeSession handleDidBecomeActive];
     }
     
 }
@@ -792,7 +648,7 @@ NSString *const FBSessionStateChangedNotification =
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0)
     {
-        [FBSession.activeSession close];
+        //[FBSession.activeSession close];
     }
 }
 

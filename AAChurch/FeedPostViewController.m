@@ -307,80 +307,6 @@
     [appDelegate doTwitter:msg];
 }
 
-- (void)publishStory
-{
-    //testing
-    static int count;
-    NSString *message = @"this is a test message for feed.";
-    message = [NSString stringWithFormat:@"message %d", count++];
-    message = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", self.feedItem.title];
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObject:message forKey:@"message"];
-    
-    [FBRequestConnection
-     startWithGraphPath:@"me/feed"
-     parameters:params//parameters:self.postParams (both formats work)
-     HTTPMethod:@"POST"
-     completionHandler:^(FBRequestConnection *connection,
-                         id result,
-                         NSError *error) {
-         NSString *alertText;
-         if (error) {
-             alertText = [NSString stringWithFormat:
-                          @"error: domain = %@, code = %d",
-                          error.domain, error.code];
-         } else {
-             //alertText = [NSString stringWithFormat:@"Posted action, id: %@", [result objectForKey:@"id"]];
-             alertText = @"Post to Facebook done.";
-             
-         }
-         // Show the result in an alert
-         [[[UIAlertView alloc] initWithTitle:@"Result"
-                                     message:alertText
-                                    delegate:self
-                           cancelButtonTitle:@"OK!"
-                           otherButtonTitles:nil]
-          show];
-     }];
-}
-
--(void)doFacebookPost {
-    
-    // Ask for publish_actions permissions in context
-    if ([FBSession.activeSession.permissions
-         indexOfObject:@"publish_actions"] == NSNotFound) {
-        // No permissions found in session, ask for it
-        [FBSession.activeSession
-         reauthorizeWithPublishPermissions:
-         [NSArray arrayWithObject:@"publish_actions"]
-         defaultAudience:FBSessionDefaultAudienceFriends
-         completionHandler:^(FBSession *session, NSError *error) {
-             if (!error) {
-                 // If permissions granted, publish the story
-                 [self publishStory];
-             }
-         }];
-    } else {
-        // If permissions present, publish the story
-        [self publishStory];
-    }
-    
-}
-
-- (void)sessionStateChanged:(NSNotification*)notification {
-    if (FBSession.activeSession.isOpen) {
-        //self.publishButton.hidden = NO;
-        //[self.authButton setTitle:@"Logout" forState:UIControlStateNormal];
-        //can we do post here?
-        NSLog(@"\ntry to do a posting!\n");
-        [self doFacebookPost];
-    } else {
-        //self.publishButton.hidden = YES;
-        //[self.authButton setTitle:@"Login" forState:UIControlStateNormal];
-        NSLog(@"\ncheck point001!\n");
-    }
-}
-
 
 - (IBAction)facebookAction:(UIButton *)sender {
     NSLog(@"Enter: %s", __PRETTY_FUNCTION__);
@@ -388,23 +314,7 @@
      
     AppDelegate *appDelegate =
     (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    /*
-    // If the user is authenticated, log out when the button is clicked.
-    // If the user is not authenticated, log in when the button is clicked.
-    if (FBSession.activeSession.isOpen) {
-        //[appDelegate closeSession];//disable by Johnson
-        //can we do post here?
-        NSLog(@"\ntry to do a posting!!\n");
-        [self doFacebookPost];
-    } else {
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
-        [appDelegate openSessionWithAllowLoginUI:YES];
-        NSLog(@"\ncheck point03\n");
-    }
-    */
-    
+        
     //NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via the Apostolic Assembly mobile app. Download it today!", currentFeedItem.title];
     NSString *msg = [NSString stringWithFormat:@"Check out \"%@\" via Fountain of Truth Church mobile app. Download it today!", self.feedItem.title];
     
@@ -501,12 +411,14 @@
     //populate the feedItem
     [self updateFeedItem:self.feedItem];
     
+    /*
     //Facebook stuff
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(sessionStateChanged:)
      name:FBSessionStateChangedNotification
      object:nil];
+     */
     
     // Check the session for a cached token to show the proper authenticated
     // UI. However, since this is not user intitiated, do not show the login UX.
