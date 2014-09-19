@@ -188,9 +188,7 @@
 		C7EA26AB15D5802C005D67F1 /* iconHome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7EA269F15D5802C005D67F1 /* iconHome@2x.png */; };
 		C7EA26AC15D5802C005D67F1 /* iconLocator.png in Resources */ = {isa = PBXBuildFile; fileRef = C7EA26A015D5802C005D67F1 /* iconLocator.png */; };
 		C7EA26AD15D5802C005D67F1 /* iconLocator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7EA26A115D5802C005D67F1 /* iconLocator@2x.png */; };
-		C7EA26B015D5823A005D67F1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EA26AF15D5823A005D67F1 /* HomeViewController.m */; };
 		C7EA26B315D5827F005D67F1 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EA26B215D5827F005D67F1 /* FeedViewController.m */; };
-		C7EA26B615D582C8005D67F1 /* GiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EA26B515D582C8005D67F1 /* GiveViewController.m */; };
 		C7EA26B915D582F3005D67F1 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EA26B815D582F3005D67F1 /* ConnectViewController.m */; };
 		C7F585AA15D0690C009F0D63 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F585A915D0690C009F0D63 /* libxml2.dylib */; };
 		C7F585AB15D06CC5009F0D63 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F585A815D0689D009F0D63 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -994,9 +992,7 @@
 				C7BA906015CD972300FE6CF0 /* Church.m in Sources */,
 				C7BA906415CDC0E300FE6CF0 /* ChurchDetailViewController.m in Sources */,
 				C6BDA90C15CF8AA5006AC299 /* DirectionViewController.m in Sources */,
-				C7EA26B015D5823A005D67F1 /* HomeViewController.m in Sources */,
 				C7EA26B315D5827F005D67F1 /* FeedViewController.m in Sources */,
-				C7EA26B615D582C8005D67F1 /* GiveViewController.m in Sources */,
 				C7EA26B915D582F3005D67F1 /* ConnectViewController.m in Sources */,
 				C78F559915DABF020002F94B /* FeedItem.m in Sources */,
 				C78F559D15DC0F2D0002F94B /* WebViewController.m in Sources */,
